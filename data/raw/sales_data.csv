@@ -1,0 +1,3 @@
+TransactionID,SaleDate,CustomerID,ProductID,StoreID,CampaignID,SaleAmount
+1,2025-05-04,1034,2059,402,0,2048.2
+2,2025-05-04,1066,2048,403,1,321.87
