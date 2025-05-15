@@ -1,0 +1,14 @@
+2025-05-14 22:54:32.041 | INFO     | __main__:main:69 - Starting data preparation...
+2025-05-14 22:54:32.043 | INFO     | __main__:read_raw_data:43 - READING: C:\Repos\smart-store-brittany\data\raw\customers_data.csv.
+2025-05-14 22:54:32.072 | INFO     | __main__:process_data:58 - Processing data for customers_data.csv.
+2025-05-14 22:54:32.073 | INFO     | __main__:process_data:59 - Data shape (ct of rows, ct of columns): (201, 4).
+2025-05-14 22:54:32.073 | INFO     | __main__:process_data:60 - Data columns: ['CustomerID', 'Name', 'Region', 'JoinDate'].
+2025-05-14 22:54:32.073 | INFO     | __main__:read_raw_data:43 - READING: C:\Repos\smart-store-brittany\data\raw\products_data.csv.
+2025-05-14 22:54:32.087 | INFO     | __main__:process_data:58 - Processing data for products_data.csv.
+2025-05-14 22:54:32.087 | INFO     | __main__:process_data:59 - Data shape (ct of rows, ct of columns): (100, 4).
+2025-05-14 22:54:32.088 | INFO     | __main__:process_data:60 - Data columns: ['ProductID', 'ProductName', 'Category', 'UnitPrice'].
+2025-05-14 22:54:32.088 | INFO     | __main__:read_raw_data:43 - READING: C:\Repos\smart-store-brittany\data\raw\sales_data.csv.
+2025-05-14 22:54:32.111 | INFO     | __main__:process_data:58 - Processing data for sales_data.csv.
+2025-05-14 22:54:32.112 | INFO     | __main__:process_data:59 - Data shape (ct of rows, ct of columns): (2001, 7).
+2025-05-14 22:54:32.112 | INFO     | __main__:process_data:60 - Data columns: ['TransactionID', 'SaleDate', 'CustomerID', 'ProductID', 'StoreID', 'CampaignID', 'SaleAmount'].
+2025-05-14 22:54:32.113 | INFO     | __main__:main:84 - Data preparation complete.

@@ -148,13 +148,13 @@ loguru
 # requests
 
 # Environment variables management
-# python-dotenv
+python-dotenv
 
 # ======================================================
 # TEXT-TO-SPEECH
 # ======================================================
 # Offline text-to-speech library for Python (1-15 MB)
-pyttsx3  
+# pyttsx3  
 
 # ======================================================
 # JUPYTERLAB (OPTIONAL, NEEDED FOR NOTEBOOKS)
@@ -182,7 +182,7 @@ ipywidgets
 
 # Primary library for Excel (both .xls and .xlsx); handles formulas, charts, formatting (~8 MB)
 # Used by pandas and other libraries.
-# openpyxl
+openpyxl
 
 # For writing advanced Excel files (.xlsx)
 # xlsxwriter
@@ -200,7 +200,7 @@ ipywidgets
 # SQLite database support (sqlite3 is built into Python, no install needed)
 
 # DuckDB: A lightweight, serverless OLAP database for Python (5-10 MB).
-# duckdb
+duckdb
 
 # ORM for SQL databases (~10 MB) such as PostgreSQL, MySQL, and SQLite
 # sqlalchemy  
@@ -222,10 +222,10 @@ ipywidgets
 # ======================================================
 
 # Numerical computations and arrays (20-30 MB)
-# numpy
+numpy
 
 # Data manipulation and analysis (built on numpy, 10-20 MB)
-# pandas
+pandas
 
 # High-performance DataFrame library for large datasets (Rust-based, fast) (~5-10 MB)
 # polars
