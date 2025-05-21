@@ -174,7 +174,7 @@ def main() -> None:
     logger.info(f"scripts      : {SCRIPTS_DIR}")
 
     input_file = "customers_data.csv"
-    output_file = "customers_prepared.csv"
+    output_file = "customers_data_prepared.csv"
     
     # Read raw data
     df = read_raw_data(input_file)
