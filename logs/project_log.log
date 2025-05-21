@@ -12,3 +12,133 @@
 2025-05-14 22:54:32.112 | INFO     | __main__:process_data:59 - Data shape (ct of rows, ct of columns): (2001, 7).
 2025-05-14 22:54:32.112 | INFO     | __main__:process_data:60 - Data columns: ['TransactionID', 'SaleDate', 'CustomerID', 'ProductID', 'StoreID', 'CampaignID', 'SaleAmount'].
 2025-05-14 22:54:32.113 | INFO     | __main__:main:84 - Data preparation complete.
+2025-05-20 23:31:59.818 | INFO     | __main__:main:167 - ==================================
+2025-05-20 23:31:59.819 | INFO     | __main__:main:168 - STARTING prepare_customers_data.py
+2025-05-20 23:31:59.819 | INFO     | __main__:main:169 - ==================================
+2025-05-20 23:31:59.820 | INFO     | __main__:main:171 - Root         : C:\Repos\smart-store-brittany
+2025-05-20 23:31:59.820 | INFO     | __main__:main:172 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-05-20 23:31:59.820 | INFO     | __main__:main:173 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-05-20 23:31:59.820 | INFO     | __main__:main:174 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-05-20 23:31:59.821 | INFO     | __main__:read_raw_data:58 - READING: C:\Repos\smart-store-brittany\data\raw\customers_data.csv.
+2025-05-20 23:31:59.825 | INFO     | __main__:main:186 - Initial dataframe columns: CustomerID, Name, Region, JoinDate, LoyaltyPoints, CustomerSegment
+2025-05-20 23:31:59.825 | INFO     | __main__:main:187 - Initial dataframe shape: (201, 6)
+2025-05-20 23:31:59.826 | INFO     | __main__:remove_duplicates:92 - FUNCTION START: remove_duplicates with dataframe shape=(201, 6)
+2025-05-20 23:31:59.837 | INFO     | __main__:remove_duplicates:103 - Original dataframe shape: (201, 6)
+2025-05-20 23:31:59.837 | INFO     | __main__:remove_duplicates:104 - Deduped  dataframe shape: (201, 6)
+2025-05-20 23:31:59.837 | INFO     | __main__:handle_missing_values:118 - FUNCTION START: handle_missing_values with dataframe shape=(201, 6)
+2025-05-20 23:31:59.838 | INFO     | __main__:handle_missing_values:122 - Total missing values before handling: 0
+2025-05-20 23:31:59.844 | INFO     | __main__:handle_missing_values:132 - Total missing values after handling: 0
+2025-05-20 23:31:59.845 | INFO     | __main__:handle_missing_values:133 - 201 records remaining after handling missing values.
+2025-05-20 23:31:59.845 | INFO     | __main__:remove_outliers:147 - FUNCTION START: remove_outliers with dataframe shape=(201, 6)
+2025-05-20 23:31:59.846 | INFO     | __main__:remove_outliers:154 - Removed 0 outlier rows
+2025-05-20 23:31:59.846 | INFO     | __main__:remove_outliers:155 - 201 records remaining after removing outliers.
+2025-05-20 23:31:59.847 | INFO     | __main__:save_prepared_data:75 - FUNCTION START: save_prepared_data with file_name=customers_prepared.csv, dataframe shape=(201, 6)
+2025-05-20 23:31:59.851 | INFO     | __main__:save_prepared_data:78 - Data saved to C:\Repos\smart-store-brittany\data\prepared\customers_prepared.csv
+2025-05-20 23:31:59.851 | INFO     | __main__:main:210 - ==================================
+2025-05-20 23:31:59.851 | INFO     | __main__:main:211 - Original shape: (201, 6)
+2025-05-20 23:31:59.852 | INFO     | __main__:main:212 - Cleaned shape:  (201, 6)
+2025-05-20 23:31:59.852 | INFO     | __main__:main:213 - ==================================
+2025-05-20 23:31:59.852 | INFO     | __main__:main:214 - FINISHED prepare_customers_data.py
+2025-05-20 23:31:59.852 | INFO     | __main__:main:215 - ==================================
+2025-05-20 23:32:05.846 | INFO     | __main__:main:229 - ==================================
+2025-05-20 23:32:05.847 | INFO     | __main__:main:230 - STARTING prepare_products_data.py
+2025-05-20 23:32:05.847 | INFO     | __main__:main:231 - ==================================
+2025-05-20 23:32:05.847 | INFO     | __main__:main:233 - Root         : C:\Repos\smart-store-brittany
+2025-05-20 23:32:05.848 | INFO     | __main__:main:234 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-05-20 23:32:05.848 | INFO     | __main__:main:235 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-05-20 23:32:05.848 | INFO     | __main__:main:236 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-05-20 23:32:05.848 | INFO     | __main__:read_raw_data:64 - FUNCTION START: read_raw_data with file_name=products_data.csv
+2025-05-20 23:32:05.848 | INFO     | __main__:read_raw_data:66 - Reading data from C:\Repos\smart-store-brittany\data\raw\products_data.csv
+2025-05-20 23:32:05.852 | INFO     | __main__:read_raw_data:68 - Loaded dataframe with 100 rows and 6 columns
+2025-05-20 23:32:05.852 | INFO     | __main__:main:248 - Initial dataframe columns: ProductID, ProductName, Category, UnitPrice, StockQuantity, Supplier
+2025-05-20 23:32:05.852 | INFO     | __main__:main:249 - Initial dataframe shape: (100, 6)
+2025-05-20 23:32:05.853 | INFO     | __main__:main:258 - Cleaned column names: ProductID -> productid, ProductName -> productname, Category -> category, UnitPrice -> unitprice, StockQuantity -> stockquantity, Supplier -> supplier
+2025-05-20 23:32:05.853 | INFO     | __main__:remove_duplicates:101 - FUNCTION START: remove_duplicates with dataframe shape=(100, 6)
+2025-05-20 23:32:05.854 | INFO     | __main__:remove_duplicates:108 - Removed 0 duplicate rows
+2025-05-20 23:32:05.854 | INFO     | __main__:remove_duplicates:109 - 100 records remaining after removing duplicates.
+2025-05-20 23:32:05.855 | INFO     | __main__:handle_missing_values:123 - FUNCTION START: handle_missing_values with dataframe shape=(100, 6)
+2025-05-20 23:32:05.856 | INFO     | __main__:handle_missing_values:128 - Missing values by column before handling:
+productid        0
+productname      0
+category         0
+unitprice        0
+stockquantity    0
+supplier         0
+dtype: int64
+2025-05-20 23:32:05.858 | INFO     | __main__:handle_missing_values:139 - Missing values by column after handling:
+productid        0
+productname      0
+category         0
+unitprice        0
+stockquantity    0
+supplier         0
+dtype: int64
+2025-05-20 23:32:05.859 | INFO     | __main__:handle_missing_values:140 - 100 records remaining after handling missing values.
+2025-05-20 23:32:05.859 | INFO     | __main__:remove_outliers:154 - FUNCTION START: remove_outliers with dataframe shape=(100, 6)
+2025-05-20 23:32:05.860 | INFO     | __main__:remove_outliers:160 - Found 0 rows with invalid stockquantity
+2025-05-20 23:32:05.861 | INFO     | __main__:remove_outliers:178 - Removed 0 outlier rows
+2025-05-20 23:32:05.861 | INFO     | __main__:remove_outliers:179 - 100 records remaining after removing outliers.
+2025-05-20 23:32:05.861 | INFO     | __main__:validate_data:215 - FUNCTION START: validate_data with dataframe shape=(100, 6)
+2025-05-20 23:32:05.862 | INFO     | __main__:validate_data:219 - Found 0 products with negative prices
+2025-05-20 23:32:05.862 | INFO     | __main__:validate_data:222 - Data validation complete
+2025-05-20 23:32:05.862 | INFO     | __main__:standardize_formats:192 - FUNCTION START: standardize_formats with dataframe shape=(100, 6)
+2025-05-20 23:32:05.863 | INFO     | __main__:standardize_formats:202 - Completed standardizing formats
+2025-05-20 23:32:05.863 | INFO     | __main__:save_prepared_data:86 - FUNCTION START: save_prepared_data with file_name=products_prepared.csv, dataframe shape=(100, 6)
+2025-05-20 23:32:05.868 | INFO     | __main__:save_prepared_data:89 - Data saved to C:\Repos\smart-store-brittany\data\prepared\products_prepared.csv
+2025-05-20 23:32:05.869 | INFO     | __main__:main:278 - ==================================
+2025-05-20 23:32:05.869 | INFO     | __main__:main:279 - Original shape: (100, 6)
+2025-05-20 23:32:05.869 | INFO     | __main__:main:280 - Cleaned shape:  (100, 6)
+2025-05-20 23:32:05.869 | INFO     | __main__:main:281 - ==================================
+2025-05-20 23:32:05.870 | INFO     | __main__:main:282 - FINISHED prepare_products_data.py
+2025-05-20 23:32:05.870 | INFO     | __main__:main:283 - ==================================
+2025-05-20 23:32:09.148 | INFO     | __main__:main:189 - ==================================
+2025-05-20 23:32:09.149 | INFO     | __main__:main:190 - STARTING prepare_sales_data.py
+2025-05-20 23:32:09.149 | INFO     | __main__:main:191 - ==================================
+2025-05-20 23:32:09.149 | INFO     | __main__:main:193 - Root         : C:\Repos\smart-store-brittany
+2025-05-20 23:32:09.150 | INFO     | __main__:main:194 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-05-20 23:32:09.150 | INFO     | __main__:main:195 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-05-20 23:32:09.150 | INFO     | __main__:main:196 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-05-20 23:32:09.150 | INFO     | __main__:read_raw_data:66 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-05-20 23:32:09.150 | INFO     | __main__:read_raw_data:68 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-05-20 23:32:09.158 | INFO     | __main__:read_raw_data:70 - Loaded dataframe with 2001 rows and 9 columns
+2025-05-20 23:32:09.158 | INFO     | __main__:main:208 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-05-20 23:32:09.158 | INFO     | __main__:main:209 - Initial dataframe shape: (2001, 9)
+2025-05-20 23:32:09.159 | INFO     | __main__:remove_duplicates:90 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-05-20 23:32:09.161 | INFO     | __main__:remove_duplicates:97 - Removed 1 duplicate rows
+2025-05-20 23:32:09.162 | INFO     | __main__:remove_duplicates:98 - 2000 records remaining after removing duplicates.
+2025-05-20 23:32:09.162 | INFO     | __main__:handle_missing_values:112 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-05-20 23:32:09.165 | INFO     | __main__:handle_missing_values:117 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-05-20 23:32:09.168 | INFO     | __main__:handle_missing_values:124 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-05-20 23:32:09.168 | INFO     | __main__:handle_missing_values:125 - 2000 records remaining after handling missing values.
+2025-05-20 23:32:09.168 | INFO     | __main__:remove_outliers:152 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-05-20 23:32:09.169 | INFO     | __main__:remove_outliers:158 - Found 506 rows with invalid CampaignID
+2025-05-20 23:32:09.170 | INFO     | __main__:remove_outliers:176 - Removed 506 outlier rows
+2025-05-20 23:32:09.171 | INFO     | __main__:remove_outliers:177 - 1494 records remaining after removing outliers.
+2025-05-20 23:32:09.171 | INFO     | __main__:save_prepared_data:136 - FUNCTION START: save_prepared_data with file_name=sales_prepared.csv, dataframe shape=(1494, 9)
+2025-05-20 23:32:09.180 | INFO     | __main__:save_prepared_data:139 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_prepared.csv
+2025-05-20 23:32:09.181 | INFO     | __main__:main:232 - ==================================
+2025-05-20 23:32:09.181 | INFO     | __main__:main:233 - Original shape: (1494, 9)
+2025-05-20 23:32:09.181 | INFO     | __main__:main:234 - Cleaned shape:  (2001, 9)
+2025-05-20 23:32:09.181 | INFO     | __main__:main:235 - ==================================
+2025-05-20 23:32:09.182 | INFO     | __main__:main:236 - FINISHED prepare_sales_data.py
+2025-05-20 23:32:09.182 | INFO     | __main__:main:237 - ==================================

@@ -1,0 +1,202 @@
+CustomerID,Name,Region,JoinDate,LoyaltyPoints,CustomerSegment
+1000,Robert Gomez,West,2/25/2024,824,Married
+1001,John Silva,East,12/1/2020,812,Unmarried
+1002,Mark Marshall,Central,8/8/2020,321,Unmarried
+1003,David Brennan,North,5/21/2020,743,Unmarried
+1004,Kerry Collins,North,9/12/2023,971,Unmarried
+1005,Jessica Mora,South,8/5/2021,414,Unmarried
+1006,Hannah Ray,West,7/3/2021,408,Married with children
+1007,David Kim,West,5/20/2020,588,Married
+1008,William Ramirez,EAST,9/15/2023,675,Married with children
+1009,Zachary Bell Jr.,East,4/20/2023,614,Married with children
+1010,Mike Davis,East,3/23/2022,218,Unmarried
+1011,Amanda Myers,West,9/5/2021,688,Married
+1012,Tara Miller,North,8/10/2020,486,Married
+1013,Alyssa Morgan,North,7/22/2022,303,Unmarried
+1014,Cindy Woods,East,4/2/2024,493,Married
+1015,Jennifer Rodgers,North,2/12/2023,116,Unmarried
+1016,Andrea Roberts,EAST,5/16/2021,492,Married with children
+1017,Brittney Burnett,North,7/3/2020,683,Unmarried
+1018,Edwin Garrison,south-west,8/31/2020,344,Unmarried
+1019,Michelle Torres,Central,11/18/2020,314,Married with children
+1020,Michelle Brewer,East,7/14/2021,876,Married with children
+1021,Aaron Burnett,South,2/13/2024,921,Married
+1022,Austin Gutierrez,EAST,11/25/2021,691,Married
+1023,Dustin Medina,east,6/14/2021,718,Married with children
+1024,Andres Avila,Central,9/19/2022,423,Married with children
+1025,Garrett Lewis,South,8/4/2023,284,Unmarried
+1026,Gary Walls,North,10/5/2023,418,Married with children
+1027,Anthony Schroeder,east,10/4/2020,827,Married
+1028,Haley Wagner,West,11/3/2023,678,Unmarried
+1029,Gina Powers,West,10/26/2022,120,Married with children
+1030,Alice Robinson,EAST,8/6/2021,861,Married with children
+1031,Jessica Frazier,West,10/20/2021,576,Unmarried
+1032,Terri Long,east,10/23/2022,778,Married
+1033,Paul Perkins,east,3/16/2022,459,Married with children
+1034,Heather Smith,Central,9/16/2022,122,Married with children
+1035,Lorraine Rodriguez,East,9/26/2022,280,Married with children
+1036,Robert Bishop,south-west,9/14/2020,238,Unmarried
+1037,Lisa Sanders,West,6/3/2020,158,Unmarried
+1038,Jason Ford,EAST,10/9/2023,631,Married
+1039,Brandy Good,West,5/21/2023,408,Unmarried
+1040,Angel Lee,Central,4/8/2022,288,Married
+1041,David Beltran,east,1/18/2021,979,Married with children
+1042,Christopher Dodson,North,10/30/2023,641,Unmarried
+1043,Eric Pena,West,6/30/2022,484,Unmarried
+1044,Anita Huerta,East,4/8/2022,628,Unmarried
+1045,Dr. Susan Bailey,North,10/2/2020,744,Married with children
+1046,Tyler Colon,Central,3/3/2021,626,Married
+1047,Ashley Pearson,West,10/4/2020,936,Unmarried
+1048,Dr. Donald Proctor,North,3/17/2024,107,Married with children
+1049,Rebecca Jordan,West,10/8/2022,415,Unmarried
+1050,Jeffrey Mclaughlin,EAST,3/28/2022,681,Married
+1051,Amy Nguyen,Central,2/13/2024,422,Unmarried
+1052,Brandon Hinton,south-west,11/10/2022,256,Married
+1053,Benjamin Cline,east,1/25/2022,890,Unmarried
+1054,Laura Mcdonald,South,12/3/2022,649,Unmarried
+1055,William Benitez,east,11/4/2020,811,Unmarried
+1056,Kristina Wilson,east,5/15/2023,399,Married
+1057,Kathy Hall,North,10/27/2023,473,Unmarried
+1058,Steven Jackson,Central,6/26/2020,684,Married with children
+1059,Steve Massey,West,8/6/2020,857,Unmarried
+1060,Mr. Christopher Thompson,South,4/10/2023,749,Married
+1061,Taylor Kaufman,North,7/23/2021,980,Unmarried
+1062,Ashley Harmon,South,2/13/2024,465,Married
+1063,Howard Case,south-west,2/15/2021,646,Married
+1064,Joshua Cline,EAST,2/19/2024,919,Unmarried
+1065,Daniel Adams,Central,7/2/2023,491,Married
+1066,Derrick Myers,North,4/6/2022,782,Married with children
+1067,Lawrence Pearson,east,4/29/2023,724,Married with children
+1068,Melissa Gutierrez,East,12/25/2023,565,Unmarried
+1069,Virginia Warren,North,8/24/2023,188,Unmarried
+1070,Brittany Johnson,East,6/4/2021,668,Unmarried
+1071,Christopher Frost,east,8/21/2020,335,Married
+1072,Shannon Schmitt,EAST,8/23/2022,408,Married with children
+1073,Matthew Clark,Central,8/21/2023,471,Married
+1074,Alyssa Evans,West,10/27/2021,617,Unmarried
+1075,Joseph Chavez,North,1/1/2023,967,Unmarried
+1076,Glenn Shelton,east,5/1/2024,940,Unmarried
+1077,Amy Espinoza,North,5/29/2021,492,Married
+1078,Danielle Fuller,south-west,12/8/2023,415,Unmarried
+1079,Zachary Thompson MD,EAST,9/5/2022,375,Married
+1080,Thomas Parker,south-west,2/28/2023,586,Married with children
+1081,Ryan White,South,9/4/2020,821,Married with children
+1082,Connor Martin,Central,1/5/2023,888,Married with children
+1083,Jacqueline Bishop,South,6/5/2020,391,Married with children
+1084,Martha Mccall,North,5/31/2022,242,Unmarried
+1085,Steven Wright,Central,8/22/2021,656,Married with children
+1086,Robert Rodriguez,EAST,3/1/2023,349,Unmarried
+1087,Carla Tran,EAST,7/22/2020,551,Unmarried
+1088,Lindsay Torres,east,12/30/2021,740,Unmarried
+1089,Matthew Hernandez,North,4/12/2023,762,Unmarried
+1090,Nicholas Dunlap,South,10/11/2020,670,Married with children
+1091,Brianna Thomas,south-west,5/23/2023,347,Unmarried
+1092,Timothy Hill,West,9/7/2023,594,Married
+1093,Christian Medina,East,2/4/2023,809,Married with children
+1094,Robert Jones,West,11/18/2023,594,Unmarried
+1095,Dr. Jason Scott,South,4/7/2021,613,Married
+1096,Patricia Rogers,South,1/10/2024,419,Unmarried
+1097,Laura Jones,EAST,12/7/2023,224,Unmarried
+1098,Jeffrey Maxwell,West,1/27/2022,996,Married with children
+1099,Lori Howard,EAST,2/27/2021,513,Married
+1100,Michael Simon,EAST,12/27/2020,133,Married with children
+1101,Ryan Martin,south-west,11/14/2020,396,Married
+1102,Robert Hansen,Central,11/19/2022,348,Unmarried
+1103,Megan Chandler,East,6/25/2023,142,Married with children
+1104,David Herrera,West,4/1/2021,203,Married with children
+1105,Taylor Clarke,Central,3/11/2023,638,Married with children
+1106,Jennifer Ewing,east,5/16/2023,664,Married
+1107,Emily Hoffman,West,6/9/2023,224,Married
+1108,Sharon Bautista,Central,7/31/2022,202,Married with children
+1109,Aaron Garcia,EAST,7/31/2023,873,Married
+1110,Melissa Grimes,South,3/14/2024,422,Unmarried
+1111,Ronald Chavez,south-west,6/24/2021,854,Married
+1112,Joseph Flores,East,4/3/2021,874,Married with children
+1113,Louis Jones,Central,7/4/2021,388,Unmarried
+1114,Grace Price,South,3/25/2022,206,Married
+1115,Gina Banks,West,9/16/2023,562,Married
+1116,Melissa Rivera,Central,10/25/2021,485,Married with children
+1117,Amanda Lang,North,4/14/2024,239,Unmarried
+1118,Briana Alvarado,South,3/18/2022,489,Married
+1119,Cameron Hernandez,east,8/8/2022,429,Married
+1120,Daniel Meyer,South,3/15/2024,510,Unmarried
+1121,Stephanie Garrison,East,8/21/2020,364,Unmarried
+1122,Christopher Martinez,east,10/7/2021,864,Married
+1123,Colleen Greene,south-west,8/21/2022,991,Married
+1124,Megan Novak,East,12/19/2022,279,Unmarried
+1125,Debbie Andrews,West,5/22/2021,419,Married
+1126,Lee Luna,east,1/19/2021,398,Married with children
+1127,George Edwards,Central,5/12/2023,571,Unmarried
+1128,Vincent Day,North,7/3/2022,470,Unmarried
+1129,Karina Jones,East,11/5/2023,131,Married
+1130,Mary Sandoval,North,10/6/2020,428,Married with children
+1131,Mark Gomez,West,6/11/2020,757,Married with children
+1132,Scott Winters,West,9/20/2022,623,Unmarried
+1133,Victor Wagner,south-west,6/12/2021,670,Married with children
+1134,Joseph Aguilar,West,12/5/2023,593,Married
+1135,Christopher Chen,South,9/10/2023,757,Unmarried
+1136,Scott Hernandez,South,2/9/2024,257,Married
+1137,Jessica Harmon,south-west,11/5/2022,413,Married
+1138,Bonnie Stewart,South,4/19/2022,336,Married with children
+1139,Heather Olson,Central,4/20/2021,771,Married
+1140,Carla Flores,EAST,9/30/2020,844,Married
+1141,David Palmer,North,9/16/2022,255,Unmarried
+1142,Marvin Hamilton,North,4/23/2022,837,Married
+1143,Miss Chelsea Castro DDS,Central,2/23/2021,964,Married
+1144,Brian Browning,EAST,5/3/2023,444,Married with children
+1145,Stephanie Powell,east,2/3/2023,508,Married with children
+1146,Jonathan Andrade,south-west,6/7/2020,359,Married
+1147,William Palmer,south-west,8/14/2023,255,Married
+1148,Dean Allison,West,6/23/2021,309,Married
+1149,Jordan Elliott,North,5/13/2020,318,Married with children
+1150,Bobby Hunter,North,12/6/2020,764,Married
+1151,Sabrina Lester,West,7/16/2022,362,Unmarried
+1152,Thomas Garcia,east,9/14/2022,555,Married
+1153,Michelle Martinez,East,7/31/2023,597,Married
+1154,Edward Castillo,North,10/1/2020,336,Unmarried
+1155,Rachel Goodman,North,4/10/2023,385,Unmarried
+1156,Dennis Acevedo,East,6/18/2023,459,Married with children
+1157,Cheryl Wu,West,12/10/2021,513,Unmarried
+1158,Kelly Gallagher,East,3/2/2024,459,Married with children
+1159,Kelli Smith,North,1/28/2022,973,Married
+1160,Phillip Soto,West,4/21/2023,443,Married with children
+1161,David Ellis,East,1/2/2023,700,Married with children
+1162,Deborah Rice,east,1/14/2022,189,Unmarried
+1163,Elizabeth Vaughn,West,5/1/2023,642,Married with children
+1164,William Ramsey,North,5/4/2023,569,Married
+1165,Richard Burnett,Central,7/24/2022,205,Married
+1166,David Mccullough,south-west,12/15/2021,285,Unmarried
+1167,Terry Frederick,North,12/20/2021,685,Married with children
+1168,Denise Gonzales,South,5/2/2022,151,Married
+1169,Michael Edwards,south-west,9/26/2023,593,Married with children
+1170,Eric Davis,North,10/15/2023,374,Married with children
+1171,Ronald Marquez,south-west,4/21/2024,408,Married with children
+1172,Eric Barr,EAST,2/1/2023,754,Unmarried
+1173,David King MD,North,9/14/2022,753,Married with children
+1174,Deborah Saunders,West,12/25/2021,239,Unmarried
+1175,Teresa Lopez,West,10/20/2021,960,Married
+1176,Ashley Williams,EAST,11/24/2021,285,Married
+1177,Katherine West,east,11/1/2020,151,Unmarried
+1178,Katherine Kerr,EAST,11/13/2020,683,Unmarried
+1179,Desiree Miller,EAST,12/21/2021,602,Unmarried
+1180,Jennifer Smith,south-west,10/3/2020,292,Married with children
+1181,Tiffany Smith,East,4/7/2024,274,Married
+1182,James Gray,West,7/24/2020,492,Married with children
+1183,Kenneth Graves,East,5/8/2020,178,Married with children
+1184,Brittney Chen,EAST,7/20/2023,974,Married with children
+1185,Cameron Levine,east,7/26/2021,606,Married with children
+1186,Timothy Williams,West,9/28/2021,759,Unmarried
+1187,Kayla Solomon,North,6/10/2022,954,Married
+1188,Ashley Todd,North,9/4/2023,711,Unmarried
+1189,Jennifer Farrell,North,11/18/2022,570,Unmarried
+1190,Elizabeth Robinson,south-west,12/27/2023,538,Married with children
+1191,Kyle Smith Jr.,South,10/31/2023,946,Married with children
+1192,Gregory Medina,EAST,6/6/2020,487,Married with children
+1193,Nancy King,South,5/23/2022,527,Married with children
+1194,Casey Brown,Central,2/9/2024,754,Unmarried
+1195,Michael Lee,south-west,8/22/2023,571,Unmarried
+1196,Dr. Elizabeth Johnston DDS,North,2/9/2022,618,Married
+1197,William Wilson,West,4/4/2023,258,Married with children
+1198,Chris Allen,south-west,10/11/2022,997,Married
+1199,James Cooley,West,7/23/2020,211,Married with children
+1005,Jessica Mora,South,8/5/2021,615,Unmarried
