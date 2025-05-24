@@ -53,10 +53,22 @@ pip install --upgrade pip
 
 ### 3. Prep the data
 
-To prepare/check our data, we have a script called `data_prep.py`. Run it like this:
+To prepare/check our data, we have Python scripts under `scripts/data_preparation`. Run them like this:
 
 ```sh
-py scripts\data_prep.py
+py scripts\data_preparation\prepare_customers_data.py
+py scripts\data_preparation\prepare_products_data.py
+py scripts\data_preparation\prepare_sales_data.py
+```
+
+**Note:** These scripts will use helpers coming from DataScrubber in `scripts\data_scrubber.py`
+
+### 4. Testing
+
+In order to test our DataScrubber class, which provides methods for data prep scripts, we run the tests in `tests\test_data_scrubber.py` as such:
+
+```sh
+py -m unittest tests/test_data_scrubber.py
 ```
 
 ## Things to remember
