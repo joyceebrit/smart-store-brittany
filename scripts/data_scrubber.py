@@ -214,7 +214,7 @@ class DataScrubber:
         except KeyError:
             raise ValueError(f"Column name '{column}' not found in the DataFrame.")
 
-    def remove_duplicate_records(self) -> pd.DataFrame:
+    def remove_duplicates(self) -> pd.DataFrame:
         """
         Remove duplicate rows from the DataFrame.
         
