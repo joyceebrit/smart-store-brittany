@@ -88,7 +88,7 @@ def save_prepared_data(df: pd.DataFrame, file_name: str) -> None:
     df.to_csv(file_path, index=False)
     logger.info(f"Data saved to {file_path}")
 
-def remove_duplicates(df: pd.DataFrame) -> pd.DataFrame:
+def remove_duplicates(df: pd.DataFrame, scrubber: DataScrubber) -> pd.DataFrame:
     """
     Remove duplicate rows from the DataFrame.
 
@@ -102,7 +102,7 @@ def remove_duplicates(df: pd.DataFrame) -> pd.DataFrame:
     initial_count = len(df)
     
     # Consider which columns should be used to identify duplicates
-    df = df.drop_duplicates(subset=['productid'])
+    df = scrubber.remove_duplicates(subset=["product_id"])
     
     removed_count = initial_count - len(df)
     logger.info(f"Removed {removed_count} duplicate rows")
@@ -154,13 +154,13 @@ def remove_outliers(df: pd.DataFrame) -> pd.DataFrame:
     logger.info(f"FUNCTION START: remove_outliers with dataframe shape={df.shape}")
     initial_count = len(df)
     
-    # stockquantity should not be below 0. 
+    # stock_quantity should not be below 0. 
     # Count how many are invalid (NaN or <= 0)
-    invalid_count = df[(df['stockquantity'].isna()) | (df['stockquantity'] <= 0)].shape[0]
-    logger.info(f"Found {invalid_count} rows with invalid stockquantity")
+    invalid_count = df[(df['stock_quantity'].isna()) | (df['stock_quantity'] <= 0)].shape[0]
+    logger.info(f"Found {invalid_count} rows with invalid stock_quantity")
 
     # Remove those rows
-    df = df[df['stockquantity'] > 0]
+    df = df[df['stock_quantity'] > 0]
     
     # OPTIONAL ADVANCED: Use IQR method to identify outliers in numeric columns
     # Example:
@@ -215,9 +215,9 @@ def validate_data(df: pd.DataFrame) -> pd.DataFrame:
     logger.info(f"FUNCTION START: validate_data with dataframe shape={df.shape}")
     
     # Implement data validation rules specific to products
-    invalid_prices = df[df['unitprice'] < 0].shape[0] # shows those that are negative prices
+    invalid_prices = df[df['unit_price'] < 0].shape[0] # shows those that are negative prices
     logger.info(f"Found {invalid_prices} products with negative prices")
-    df = df[df['unitprice'] >= 0] # keeps only the ones that are greater or equal to 0
+    df = df[df['unit_price'] >= 0] # keeps only the ones that are greater or equal to 0
     
     logger.info("Data validation complete")
     return df
@@ -238,27 +238,28 @@ def main() -> None:
     input_file = "products_data.csv"
     output_file = "products_data_prepared.csv"
     
-    # Read raw data
     df = read_raw_data(input_file)
-
-    # Record original shape
     original_shape = df.shape
+    original_columns = df.columns.tolist()
 
     # Log initial dataframe information
-    logger.info(f"Initial dataframe columns: {', '.join(df.columns.tolist())}")
-    logger.info(f"Initial dataframe shape: {df.shape}")
+    logger.info(f"Initial dataframe columns: {', '.join(original_columns)}")
+    logger.info(f"Initial dataframe shape: {original_shape}")
     
-    # Clean column names
-    original_columns = df.columns.tolist()
-    df.columns = df.columns.str.strip().str.lower().str.replace(' ', '_')
-    
-    # Log if any column names changed
-    changed_columns = [f"{old} -> {new}" for old, new in zip(original_columns, df.columns) if old != new]
+    # --- Clean using DataScrubber ---
+    scrubber = DataScrubber(df)
+    scrubber.normalize_column_names()
+    scrubber.format_string_columns()
+    df = scrubber.get_dataframe()
+
+    # Log column name changes
+    cleaned_columns = df.columns.tolist()
+    changed_columns = [f"{old} -> {new}" for old, new in zip(original_columns, cleaned_columns) if old != new]
     if changed_columns:
         logger.info(f"Cleaned column names: {', '.join(changed_columns)}")
 
     # Remove duplicates
-    df = remove_duplicates(df)
+    df = remove_duplicates(df, scrubber)
 
     # Handle missing values
     df = handle_missing_values(df)

@@ -26,6 +26,7 @@ Example:
 
 import io
 import pandas as pd
+import re
 from typing import Dict, Tuple, Union, List
 
 class DataScrubber:
@@ -38,6 +39,31 @@ class DataScrubber:
         """
         self.df = df
 
+    def normalize_column_names(self) -> None:
+        """Convert column names to lowercase and snake_case."""
+        def to_snake_case(col):
+            col = col.strip()  # remove surrounding whitespace
+            col = re.sub(r'[\s\-]+', '_', col)  # replace spaces/hyphens with underscores
+            col = re.sub(r'([a-z0-9])([A-Z])', r'\1_\2', col)  # handle camelCase or PascalCase
+            col = re.sub(r'__+', '_', col)  # remove double underscores
+            return col.lower()
+
+        self.df.columns = [to_snake_case(col) for col in self.df.columns]
+
+    def format_string_columns(self, columns: list[str] = None) -> None:
+        """Lowercase and trim string values in specified columns."""
+        if columns is None:
+            columns = self.df.select_dtypes(include=["object", "string"]).columns.tolist()
+
+        for col in columns:
+            if col not in self.df.columns:
+                raise ValueError(f"Column '{col}' not found in the DataFrame.")
+            self.df[col] = self.df[col].str.lower().str.strip()
+    
+    def get_dataframe(self) -> pd.DataFrame:
+        """Returns the cleaned DataFrame."""
+        return self.df
+    
     def check_data_consistency_before_cleaning(self) -> Dict[str, Union[pd.Series, int]]:
         """
         Check data consistency before cleaning by calculating counts of null and duplicate entries.
@@ -122,25 +148,6 @@ class DataScrubber:
         except KeyError:
             raise ValueError(f"Column name '{column}' not found in the DataFrame.")
 
-    def format_column_strings_to_lower_and_trim(self, column: str) -> pd.DataFrame:
-        """
-        Format strings in a specified column by converting to lowercase and trimming whitespace.
-        
-        Parameters:
-            column (str): Name of the column to format.
-        
-        Returns:
-            pd.DataFrame: Updated DataFrame with formatted string column.
-
-        Raises:
-            ValueError: If the specified column not found in the DataFrame.
-        """
-        try:
-            self.df[column] = self.df[column].str.lower().str.strip()
-            return self.df
-        except KeyError:
-            raise ValueError(f"Column name '{column}' not found in the DataFrame.")
-        
     def format_column_strings_to_upper_and_trim(self, column: str) -> pd.DataFrame:
         """
         Format strings in a specified column by converting to uppercase and trimming whitespace.
@@ -155,8 +162,7 @@ class DataScrubber:
             ValueError: If the specified column not found in the DataFrame.
         """
         try:
-            # TODO: Fix the following logic to call str.upper() and str.strip() on the given column 
-            # HINT: See previous function for an example
+            self.df[column] = self.df[column].str.upper().str.strip()
             self.df[column] = self.df[column]
             return self.df
         except KeyError:
@@ -214,15 +220,18 @@ class DataScrubber:
         except KeyError:
             raise ValueError(f"Column name '{column}' not found in the DataFrame.")
 
-    def remove_duplicate_records(self) -> pd.DataFrame:
+    def remove_duplicates(self, subset: list[str] = None, keep: str = "first") -> pd.DataFrame:
         """
         Remove duplicate rows from the DataFrame.
-        
+
+        Parameters:
+            subset (list[str], optional): Columns to consider when identifying duplicates.
+            keep (str): Which duplicates to keep ('first', 'last', or False to drop all).
+
         Returns:
             pd.DataFrame: Updated DataFrame with duplicates removed.
-
         """
-        self.df = self.df.drop_duplicates()
+        self.df = self.df.drop_duplicates(subset=subset, keep=keep)
         return self.df
 
     def rename_columns(self, column_mapping: Dict[str, str]) -> pd.DataFrame:

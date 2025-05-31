@@ -71,6 +71,108 @@ In order to test our DataScrubber class, which provides methods for data prep sc
 py -m unittest tests/test_data_scrubber.py
 ```
 
+### 5. Data Warehouse Design
+
+My data warehouse follows a star schema design. The central fact table is the `sales` table, which records individual transactions. This is surrounded by several dimension tables, including `customers`, `products`, `stores`, and `campaigns`, each providing descriptive context for analysis.
+
+#### Schema Implementation
+
+Fact Table: `sales`
+
+Contains measurable data such as sale_amount, and foreign keys to dimension tables.
+
+```sql
+CREATE TABLE IF NOT EXISTS sales (
+    sale_id INTEGER PRIMARY KEY,
+    customer_id INTEGER,
+    product_id INTEGER,
+    store_id INTEGER,
+    campaign_id INTEGER,
+    sale_amount REAL,
+    sale_date TEXT,
+    bonus_points INTEGER,
+    payment_type TEXT,
+    FOREIGN KEY (customer_id) REFERENCES customer (customer_id),
+    FOREIGN KEY (product_id) REFERENCES product (product_id)
+)
+```
+
+Dimension Table: `customers`
+
+Holds customer demographics and identifiers.
+
+```sql
+CREATE TABLE IF NOT EXISTS customers (
+    customer_id INTEGER PRIMARY KEY,
+    name TEXT,
+    region TEXT,
+    join_date TEXT,
+    loyalty_points INTEGER,
+    customer_segment TEXT
+)
+```
+
+Dimension Table: `products`
+
+Contains product names, categories, and pricing data.
+
+```sql
+CREATE TABLE IF NOT EXISTS products (
+    product_id INTEGER PRIMARY KEY,
+    product_name TEXT,
+    category TEXT,
+    unit_price INTEGER,
+    stock_quantity INTEGER,
+    supplier TEXT
+)
+```
+
+Dimension Table: `stores`
+
+Describes physical or digital store locations.
+
+```sql
+ CREATE TABLE stores (
+    store_id INTEGER PRIMARY KEY,
+    store_name TEXT NOT NULL,
+    location TEXT,
+    state TEXT,
+    country TEXT,
+    store_type TEXT
+)
+```
+
+Dimension Table: `campaigns`
+
+Includes marketing campaign metadata.
+
+```sql
+CREATE TABLE campaigns (
+    campaign_id INTEGER PRIMARY KEY,
+    campaign_name TEXT NOT NULL,
+    start_date DATE,
+    end_date DATE,
+    channel TEXT,
+    budget_usd REAL
+)
+```
+
+#### Design Choices
+
+I chose a star schema to simplify query performance and support fast queries.
+
+#### Challenges Encountered
+
+Handling missing or inconsistent column names in source data. I had to go back and modify my data scrubber to support this in order to come up with column names that matched what was expected at time of loading back to the database.
+
+#### Screenshots for the table structures
+
+![alt text](screenshots/sales_tbl.png)
+![alt text](screenshots/customers_tbl.png)
+![alt text](screenshots/products_tbl.png)
+![alt text](screenshots/stores_tbl.png)
+![alt text](screenshots/campaigns_tbl.png)
+
 ## Things to remember
 
 The following are things to refresh my memory:

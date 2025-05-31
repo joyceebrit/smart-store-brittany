@@ -1,6 +1,6 @@
 import unittest
 import pandas as pd
-from scripts.data_scrubber import DataScrubber
+from utils.data_scrubber import DataScrubber
 
 class TestDataScrubber(unittest.TestCase):
 

@@ -77,7 +77,7 @@ def save_prepared_data(df: pd.DataFrame, file_name: str) -> None:
     df.to_csv(file_path, index=False)
     logger.info(f"Data saved to {file_path}")
 
-def remove_duplicates(df: pd.DataFrame) -> pd.DataFrame:
+def remove_duplicates(df: pd.DataFrame, scrubber: DataScrubber) -> pd.DataFrame:
     """
     Remove duplicate rows from the DataFrame.
     How do you decide if a row is duplicated?
@@ -91,14 +91,9 @@ def remove_duplicates(df: pd.DataFrame) -> pd.DataFrame:
     """
     logger.info(f"FUNCTION START: remove_duplicates with dataframe shape={df.shape}")
 
-    # Let's delegate this to the DataScrubber class
-    # First, create an instance of the DataScrubber class 
-    # by passing in the dataframe as an argument.
-    df_scrubber = DataScrubber(df)
-
     # Now, call the method on our instance to remove duplicates.
     # This method will return a new dataframe with duplicates removed.
-    df_deduped = df_scrubber.remove_duplicate_records()
+    df_deduped = scrubber.remove_duplicates(subset=["customer_id"])
     
     logger.info(f"Original dataframe shape: {df.shape}")
     logger.info(f"Deduped  dataframe shape: {df_deduped.shape}")
@@ -124,8 +119,8 @@ def handle_missing_values(df: pd.DataFrame) -> pd.DataFrame:
     # Fill missing values in the Name column with 'Unknown'
     df.fillna({'Name': 'Unknown'}, inplace=True)
 
-    # Drop any rows where the CustomerID column is missing
-    df.dropna(subset=['CustomerID'], inplace=True)
+    # Drop any rows where the customer_id column is missing
+    df.dropna(subset=['customer_id'], inplace=True)
     
     # Log missing values count after handling
     missing_after = df.isna().sum().sum()
@@ -148,7 +143,7 @@ def remove_outliers(df: pd.DataFrame) -> pd.DataFrame:
     initial_count = len(df)
     
     # Define numeric columns and apply rules for outlier removal
-    df = df[(df['LoyaltyPoints'] > 1) & (df['LoyaltyPoints'] < 1000)]
+    df = df[(df['loyalty_points'] > 1) & (df['loyalty_points'] < 1000)]
     
     removed_count = initial_count - len(df)
     logger.info(f"Removed {removed_count} outlier rows")
@@ -175,28 +170,29 @@ def main() -> None:
 
     input_file = "customers_data.csv"
     output_file = "customers_data_prepared.csv"
-    
-    # Read raw data
-    df = read_raw_data(input_file)
 
-    # Record original shape
+    df = read_raw_data(input_file)
     original_shape = df.shape
+    original_columns = df.columns.tolist()
 
     # Log initial dataframe information
-    logger.info(f"Initial dataframe columns: {', '.join(df.columns.tolist())}")
-    logger.info(f"Initial dataframe shape: {df.shape}")
+    logger.info(f"Initial dataframe columns: {', '.join(original_columns)}")
+    logger.info(f"Initial dataframe shape: {original_shape}")
     
-    # Clean column names
-    original_columns = df.columns.tolist()
-    df.columns = df.columns.str.strip()
-    
-    # Log if any column names changed
-    changed_columns = [f"{old} -> {new}" for old, new in zip(original_columns, df.columns) if old != new]
+    # --- Clean using DataScrubber ---
+    scrubber = DataScrubber(df)
+    scrubber.normalize_column_names()
+    scrubber.format_string_columns()
+    df = scrubber.get_dataframe()
+
+    # Log column name changes
+    cleaned_columns = df.columns.tolist()
+    changed_columns = [f"{old} -> {new}" for old, new in zip(original_columns, cleaned_columns) if old != new]
     if changed_columns:
         logger.info(f"Cleaned column names: {', '.join(changed_columns)}")
 
     # Remove duplicates
-    df = remove_duplicates(df)
+    df = remove_duplicates(df, scrubber)
 
     # Handle missing values
     df = handle_missing_values(df)

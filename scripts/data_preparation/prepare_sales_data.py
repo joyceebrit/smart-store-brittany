@@ -77,7 +77,7 @@ def read_raw_data(file_name: str) -> pd.DataFrame:
     
     return df
 
-def remove_duplicates(df: pd.DataFrame) -> pd.DataFrame:
+def remove_duplicates(df: pd.DataFrame, scrubber: DataScrubber) -> pd.DataFrame:
     """
     Remove duplicate rows from the DataFrame.
 
@@ -91,7 +91,7 @@ def remove_duplicates(df: pd.DataFrame) -> pd.DataFrame:
     initial_count = len(df)
     
     # Consider which columns should be used to identify duplicates
-    df = df.drop_duplicates(subset=['TransactionID'])
+    df = scrubber.remove_duplicates(subset=["transaction_id"])
     
     removed_count = initial_count - len(df)
     logger.info(f"Removed {removed_count} duplicate rows")
@@ -152,13 +152,13 @@ def remove_outliers(df: pd.DataFrame) -> pd.DataFrame:
     logger.info(f"FUNCTION START: remove_outliers with dataframe shape={df.shape}")
     initial_count = len(df)
     
-    # CampaignID should not be below 0. 
+    # campaign_id should not be below 0. 
     # Count how many are invalid (NaN or <= 0)
-    invalid_count = df[(df['CampaignID'].isna()) | (df['CampaignID'] <= 0)].shape[0]
-    logger.info(f"Found {invalid_count} rows with invalid CampaignID")
+    invalid_count = df[(df['campaign_id'].isna()) | (df['campaign_id'] <= 0)].shape[0]
+    logger.info(f"Found {invalid_count} rows with invalid campaign_id")
 
     # Remove those rows
-    df = df[df['CampaignID'] > 0]
+    df = df[df['campaign_id'] > 0]
     
     # OPTIONAL ADVANCED: Use IQR method to identify outliers in numeric columns
     # Example:
@@ -198,33 +198,40 @@ def main() -> None:
     input_file = "sales_data.csv"
     output_file = "sales_data_prepared.csv"
     
-    # Read raw data
     df = read_raw_data(input_file)
-
-    # Record original shape
     original_shape = df.shape
+    original_columns = df.columns.tolist()
 
     # Log initial dataframe information
-    logger.info(f"Initial dataframe columns: {', '.join(df.columns.tolist())}")
-    logger.info(f"Initial dataframe shape: {df.shape}")
+    logger.info(f"Initial dataframe columns: {', '.join(original_columns)}")
+    logger.info(f"Initial dataframe shape: {original_shape}")
     
-    # Clean column names
-    original_columns = df.columns.tolist()
-    df.columns = df.columns.str.strip()
-    
-    # Log if any column names changed
-    changed_columns = [f"{old} -> {new}" for old, new in zip(original_columns, df.columns) if old != new]
+    # --- Clean using DataScrubber ---
+    scrubber = DataScrubber(df)
+    scrubber.normalize_column_names()
+    scrubber.format_string_columns()
+    df = scrubber.get_dataframe()
+
+    # Log column name changes
+    cleaned_columns = df.columns.tolist()
+    changed_columns = [f"{old} -> {new}" for old, new in zip(original_columns, cleaned_columns) if old != new]
     if changed_columns:
         logger.info(f"Cleaned column names: {', '.join(changed_columns)}")
 
     # Remove duplicates
-    df = remove_duplicates(df)
+    df = remove_duplicates(df, scrubber)
 
     # Handle missing values
     df = handle_missing_values(df)
 
-    # TODO:Remove outliers
+    # Remove outliers
     df = remove_outliers(df)
+
+    df = scrubber.rename_columns(
+        {
+            "transaction_id" : "sale_id"
+        }
+    )
 
     # Save prepared data
     save_prepared_data(df, output_file)
