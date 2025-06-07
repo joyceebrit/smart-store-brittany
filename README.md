@@ -173,6 +173,29 @@ Handling missing or inconsistent column names in source data. I had to go back a
 ![alt text](screenshots/stores_tbl.png)
 ![alt text](screenshots/campaigns_tbl.png)
 
+### 6. Cross-Platform Reporting with Power BI
+
+#### SQL queries and reports
+
+- Top Customers
+- Sales by Region
+- Sales by Category per Region
+- Sales by Customers
+
+#### Screenshot: Power BI Model View / Spark SQL Schema
+
+![alt text](screenshots/power_bi_model_view.png)
+
+#### Screenshot: Query results
+
+![alt text](screenshots/power_bi_query_results_top_customers.png)
+
+#### Screenshot: Final Dashboard / Charts
+
+![alt text](screenshots/power_bi_category_sales_by_region.png)
+![alt text](screenshots/power_bi_sum_of_sales_by_category_and_region.png)
+![alt text](screenshots/power_bi_sum_of_sales_by_name.png)
+
 ## Things to remember
 
 The following are things to refresh my memory:
