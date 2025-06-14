@@ -2607,3 +2607,108 @@ dtype: int64
 2025-06-14 01:39:05.418 | INFO     | __main__:main:193 - ==================================
 2025-06-14 01:39:05.418 | INFO     | __main__:main:194 - FINISHED prepare_sales_data.py
 2025-06-14 01:39:05.419 | INFO     | __main__:main:195 - ==================================
+2025-06-14 01:49:56.081 | INFO     | __main__:main:113 - Starting SALES_LOW_REVENUE_DAYOFWEEK analysis...
+2025-06-14 01:49:56.088 | INFO     | __main__:load_olap_cube:50 - OLAP cube data successfully loaded from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 01:49:56.089 | ERROR    | __main__:analyze_sales_by_weekday:69 - Error analyzing sales by DayOfWeek: 'Column not found: sale_amount_usd_sum'
+2025-06-14 01:50:38.343 | INFO     | __main__:main:113 - Starting SALES_LOW_REVENUE_DAYOFWEEK analysis...
+2025-06-14 01:50:38.349 | INFO     | __main__:load_olap_cube:50 - OLAP cube data successfully loaded from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 01:50:38.358 | INFO     | __main__:analyze_sales_by_weekday:66 - Sales aggregated by DayOfWeek successfully.
+2025-06-14 01:50:38.359 | INFO     | __main__:identify_least_profitable_day:77 - Least profitable day: Sunday with revenue $1476301.23.
+2025-06-14 01:50:38.359 | INFO     | __main__:main:123 - Least profitable day: Sunday
+2025-06-14 01:50:38.359 | INFO     | __main__:main:124 - Close the Figure to complete this script.
+2025-06-14 01:50:40.177 | INFO     | __main__:visualize_sales_by_weekday:104 - Visualization saved to data\results\sales_by_day_of_week.png.
+2025-06-14 01:51:51.141 | INFO     | __main__:main:128 - Analysis and visualization completed successfully.
+2025-06-14 02:08:42.474 | INFO     | __main__:main:113 - Starting SALES_LOW_REVENUE_DAYOFWEEK analysis...
+2025-06-14 02:08:42.486 | INFO     | __main__:load_olap_cube:50 - OLAP cube data successfully loaded from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 02:08:42.499 | INFO     | __main__:analyze_sales_by_weekday:66 - Sales aggregated by DayOfWeek successfully.
+2025-06-14 02:08:42.499 | INFO     | __main__:identify_least_profitable_day:77 - Least profitable day: Sunday with revenue $1476301.23.
+2025-06-14 02:08:42.500 | INFO     | __main__:main:123 - Least profitable day: Sunday
+2025-06-14 02:08:42.500 | INFO     | __main__:main:124 - Close the Figure to complete this script.
+2025-06-14 02:08:42.887 | INFO     | __main__:visualize_sales_by_weekday:104 - Visualization saved to data\results\sales_by_day_of_week.png.
+2025-06-14 02:08:45.402 | INFO     | __main__:main:128 - Analysis and visualization completed successfully.
+2025-06-14 02:08:52.250 | INFO     | __main__:main:206 - Starting OLAP Cubing process...
+2025-06-14 02:08:52.266 | INFO     | __main__:ingest_sales_data_from_dw:113 - Sales data successfully loaded from SQLite data warehouse.
+2025-06-14 02:08:52.284 | INFO     | __main__:create_olap_cube:161 - OLAP cube created with dimensions: ['customer_id']
+2025-06-14 02:08:52.290 | INFO     | __main__:write_cube_to_csv:199 - OLAP cube saved to data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 02:08:52.290 | INFO     | __main__:main:231 - OLAP Cubing process completed successfully.
+2025-06-14 02:08:52.290 | INFO     | __main__:main:232 - Please see outputs in data\olap_cubing_outputs
+2025-06-14 02:09:21.968 | INFO     | __main__:main:206 - Starting OLAP Cubing process...
+2025-06-14 02:09:21.975 | INFO     | __main__:ingest_sales_data_from_dw:113 - Sales data successfully loaded from SQLite data warehouse.
+2025-06-14 02:09:21.986 | INFO     | __main__:create_olap_cube:161 - OLAP cube created with dimensions: ['customer_id']
+2025-06-14 02:09:21.992 | INFO     | __main__:write_cube_to_csv:199 - OLAP cube saved to data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 02:09:21.993 | INFO     | __main__:main:231 - OLAP Cubing process completed successfully.
+2025-06-14 02:09:21.993 | INFO     | __main__:main:232 - Please see outputs in data\olap_cubing_outputs
+2025-06-14 02:10:49.565 | INFO     | __main__:main:206 - Starting OLAP Cubing process...
+2025-06-14 02:10:49.572 | INFO     | __main__:ingest_sales_data_from_dw:113 - Sales data successfully loaded from SQLite data warehouse.
+2025-06-14 02:10:49.581 | INFO     | __main__:create_olap_cube:161 - OLAP cube created with dimensions: ['customer_id']
+2025-06-14 02:10:49.586 | INFO     | __main__:write_cube_to_csv:199 - OLAP cube saved to data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 02:10:49.587 | INFO     | __main__:main:231 - OLAP Cubing process completed successfully.
+2025-06-14 02:10:49.587 | INFO     | __main__:main:232 - Please see outputs in data\olap_cubing_outputs
+2025-06-14 02:11:28.663 | INFO     | __main__:main:206 - Starting OLAP Cubing process...
+2025-06-14 02:11:28.670 | INFO     | __main__:ingest_sales_data_from_dw:113 - Sales data successfully loaded from SQLite data warehouse.
+2025-06-14 02:11:28.680 | INFO     | __main__:create_olap_cube:161 - OLAP cube created with dimensions: ['customer_id']
+2025-06-14 02:11:28.686 | INFO     | __main__:write_cube_to_csv:199 - OLAP cube saved to data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 02:11:28.686 | INFO     | __main__:main:231 - OLAP Cubing process completed successfully.
+2025-06-14 02:11:28.686 | INFO     | __main__:main:232 - Please see outputs in data\olap_cubing_outputs
+2025-06-14 02:17:17.787 | INFO     | __main__:main:215 - Starting OLAP Cubing process...
+2025-06-14 02:17:17.802 | INFO     | __main__:ingest_sales_data_from_dw:113 - Sales data successfully loaded from SQLite data warehouse.
+2025-06-14 02:17:17.828 | INFO     | __main__:create_olap_cube:170 - OLAP cube created with dimensions: ['customer_id']
+2025-06-14 02:17:17.834 | INFO     | __main__:write_cube_to_csv:208 - OLAP cube saved to data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 02:17:17.834 | INFO     | __main__:main:240 - OLAP Cubing process completed successfully.
+2025-06-14 02:17:17.835 | INFO     | __main__:main:241 - Please see outputs in data\olap_cubing_outputs
+2025-06-14 02:21:20.760 | INFO     | __main__:main:215 - Starting OLAP Cubing process...
+2025-06-14 02:21:20.771 | INFO     | __main__:ingest_sales_data_from_dw:113 - Sales data successfully loaded from SQLite data warehouse.
+2025-06-14 02:21:20.776 | ERROR    | __main__:create_olap_cube:173 - Error creating OLAP cube: Length mismatch: Expected axis has 3 elements, new values have 4 elements
+2025-06-14 02:21:32.066 | INFO     | __main__:main:215 - Starting OLAP Cubing process...
+2025-06-14 02:21:32.074 | INFO     | __main__:ingest_sales_data_from_dw:113 - Sales data successfully loaded from SQLite data warehouse.
+2025-06-14 02:21:32.080 | INFO     | __main__:create_olap_cube:170 - OLAP cube created with dimensions: ['customer_id']
+2025-06-14 02:21:32.086 | INFO     | __main__:write_cube_to_csv:208 - OLAP cube saved to data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 02:21:32.086 | INFO     | __main__:main:240 - OLAP Cubing process completed successfully.
+2025-06-14 02:21:32.087 | INFO     | __main__:main:241 - Please see outputs in data\olap_cubing_outputs
+2025-06-14 02:22:28.630 | INFO     | __main__:main:215 - Starting OLAP Cubing process...
+2025-06-14 02:22:28.638 | INFO     | __main__:ingest_sales_data_from_dw:113 - Sales data successfully loaded from SQLite data warehouse.
+2025-06-14 02:22:28.644 | ERROR    | __main__:create_olap_cube:173 - Error creating OLAP cube: 'sale_amount_sum'
+2025-06-14 02:23:37.422 | INFO     | __main__:main:215 - Starting OLAP Cubing process...
+2025-06-14 02:23:37.430 | INFO     | __main__:ingest_sales_data_from_dw:113 - Sales data successfully loaded from SQLite data warehouse.
+2025-06-14 02:23:37.441 | INFO     | __main__:create_olap_cube:170 - OLAP cube created with dimensions: ['customer_id']
+2025-06-14 02:23:37.446 | INFO     | __main__:write_cube_to_csv:208 - OLAP cube saved to data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 02:23:37.446 | INFO     | __main__:main:240 - OLAP Cubing process completed successfully.
+2025-06-14 02:23:37.446 | INFO     | __main__:main:241 - Please see outputs in data\olap_cubing_outputs
+2025-06-14 02:28:09.860 | INFO     | __main__:main:113 - Starting SALES_LOW_REVENUE_DAYOFWEEK analysis...
+2025-06-14 02:28:09.868 | INFO     | __main__:load_olap_cube:50 - OLAP cube data successfully loaded from data\olap_cubing_outputs\multidimensional_olap_cube copy.csv.
+2025-06-14 02:28:09.871 | INFO     | __main__:analyze_sales_by_weekday:66 - Sales aggregated by DayOfWeek successfully.
+2025-06-14 02:28:09.872 | INFO     | __main__:identify_least_profitable_day:77 - Least profitable day: Sunday with revenue $1476301.23.
+2025-06-14 02:28:09.872 | INFO     | __main__:main:123 - Least profitable day: Sunday
+2025-06-14 02:28:09.873 | INFO     | __main__:main:124 - Close the Figure to complete this script.
+2025-06-14 02:28:10.282 | INFO     | __main__:visualize_sales_by_weekday:104 - Visualization saved to data\results\sales_by_day_of_week.png.
+2025-06-14 02:41:49.297 | INFO     | __main__:main:113 - Starting SALES_LOW_REVENUE_DAYOFWEEK analysis...
+2025-06-14 02:41:49.304 | INFO     | __main__:load_olap_cube:50 - OLAP cube data successfully loaded from data\olap_cubing_outputs\multidimensional_olap_cube copy.csv.
+2025-06-14 02:41:49.307 | INFO     | __main__:analyze_sales_by_weekday:66 - Sales aggregated by DayOfWeek successfully.
+2025-06-14 02:41:49.633 | INFO     | __main__:visualize_sales_by_weekday:104 - Visualization saved to data\results\sales_by_day_of_week.png.
+2025-06-14 02:41:53.666 | INFO     | __main__:main:128 - Analysis and visualization completed successfully.
+2025-06-14 02:48:21.208 | INFO     | __main__:load_olap_cube:22 - OLAP cube data successfully loaded from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 02:49:16.354 | INFO     | __main__:load_olap_cube:22 - OLAP cube data successfully loaded from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 02:54:23.080 | INFO     | __main__:load_olap_cube:22 - OLAP cube data successfully loaded from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 03:00:10.648 | INFO     | __main__:load_olap_cube:21 - OLAP cube data successfully loaded from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 03:04:32.873 | INFO     | __main__:main:103 - Starting OLAP Cubing process...
+2025-06-14 03:04:32.893 | INFO     | __main__:ingest_sales_data_from_dw:27 - Sales data successfully loaded from SQLite data warehouse.
+2025-06-14 03:04:32.908 | INFO     | __main__:create_olap_cube:84 - OLAP cube created with dimensions: ['customer_id']
+2025-06-14 03:04:32.910 | INFO     | __main__:ingest_customers_from_dw:40 - Customers data successfully loaded from SQLite data warehouse.
+2025-06-14 03:04:32.923 | INFO     | __main__:write_cube_to_csv:96 - OLAP cube saved to data\olap_cubing_outputs\multidimensional_olap_cube_with_names.csv.
+2025-06-14 03:04:32.923 | INFO     | __main__:main:127 - OLAP Cubing process completed successfully.
+2025-06-14 03:04:32.924 | INFO     | __main__:main:128 - Please see outputs in data\olap_cubing_outputs
+2025-06-14 03:05:08.672 | INFO     | __main__:load_olap_cube:22 - Loaded OLAP cube data from data\olap_cubing_outputs\multidimensional_olap_cube_with_names.csv.
+2025-06-14 03:06:48.109 | INFO     | __main__:main:103 - Starting OLAP Cubing process...
+2025-06-14 03:06:48.116 | INFO     | __main__:ingest_sales_data_from_dw:27 - Sales data successfully loaded from SQLite data warehouse.
+2025-06-14 03:06:48.126 | INFO     | __main__:create_olap_cube:84 - OLAP cube created with dimensions: ['customer_id']
+2025-06-14 03:06:48.129 | INFO     | __main__:ingest_customers_from_dw:40 - Customers data successfully loaded from SQLite data warehouse.
+2025-06-14 03:06:48.135 | INFO     | __main__:write_cube_to_csv:96 - OLAP cube saved to data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 03:06:48.136 | INFO     | __main__:main:127 - OLAP Cubing process completed successfully.
+2025-06-14 03:06:48.136 | INFO     | __main__:main:128 - Please see outputs in data\olap_cubing_outputs
+2025-06-14 03:06:53.281 | INFO     | __main__:load_olap_cube:22 - Loaded OLAP cube data from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 03:09:49.881 | INFO     | __main__:load_olap_cube:26 - OLAP cube data successfully loaded from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 03:11:03.666 | INFO     | __main__:load_olap_cube:26 - OLAP cube data successfully loaded from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 03:11:04.773 | INFO     | __main__:plot_avg_transaction_size:54 - Saved plot image to graphs\avg_transaction_size_top_customers.png
+2025-06-14 03:11:25.723 | INFO     | __main__:load_olap_cube:24 - Loaded OLAP cube data from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 03:12:12.600 | INFO     | __main__:load_olap_cube:24 - Loaded OLAP cube data from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 03:12:13.424 | INFO     | __main__:plot_avg_transaction_size:80 - Saved plot image to graphs\avg_transaction_size_top_20.png
