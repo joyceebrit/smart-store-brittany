@@ -196,6 +196,73 @@ Handling missing or inconsistent column names in source data. I had to go back a
 ![alt text](screenshots/power_bi_sum_of_sales_by_category_and_region.png)
 ![alt text](screenshots/power_bi_sum_of_sales_by_name.png)
 
+### 7. P6 - BI Insights and Storytelling
+
+#### Section 1. The Business Goal
+
+The goal of this analysis is to understand customer purchasing behavior by calculating the average transaction size per customer. This metric helps identify high-value customers, optimize marketing strategies, and improve sales targeting, ultimately driving revenue growth.
+
+#### Section 2. Data Source
+
+The analysis began with data extracted from a SQLite data warehouse containing the following tables:
+
+- **sales (fact table):** Columns used - sale_id, customer_id, sale_amount, sale_date
+- **customers (dimension table):** Columns used - customer_id, name
+
+Data was combined to create an OLAP cube that aggregates total sales and transaction counts by customer.
+
+#### Section 3. Tools
+
+- **Python** for data processing and analysis (Pandas for data manipulation).
+- **Seaborn and Matplotlib** for creating clear and interpretable visualizations.
+- **SQLite** as the data warehouse storage.
+- Custom Python scripts were used for creating OLAP cubes and generating aggregated metrics.
+
+These tools provide flexibility, reproducibility, and are well-suited for handling both data extraction and visualization in a lightweight environment.
+
+#### Section 4. Workflow & Logic
+
+1. **Data Extraction:** Sales and customer data were ingested from the SQLite warehouse.
+
+2. **Data Preparation:** Cleaned and formatted date columns, validated sale amounts, and joined sales data with customer names.
+
+3. **OLAP Cubing:** Grouped sales by customer_id to calculate:
+
+   - Sum of sales (sale_amount_sum)
+   - Count of transactions (sale_id_count)
+   - Computed average transaction size (sale_amount_sum / sale_id_count)
+
+4. **Visualization:** Plotted the top 20 customers by average transaction size, aggregating the rest into an "Others" category for clarity.
+
+Note: Code-based workflow was chosen over graphical tools for transparency and automation.
+
+#### Section 5. Results
+
+- The average transaction size varies significantly among customers, highlighting a small group of high-value customers.
+
+- The top 20 customers contributed a large portion of total sales with consistently higher transaction sizes.
+
+- Visualization clearly distinguishes these top customers and groups the rest to simplify interpretation.
+  ![alt text](graphs/avg_transaction_size_top_20.png)
+
+#### Section 6: Suggested Business Action
+
+- Focus marketing and loyalty efforts on the top-tier customers to maximize ROI.
+
+- Design targeted promotions to increase the average transaction size of mid-tier customers.
+
+- Use the OLAP cube as a foundation for ongoing customer behavior analysis and segmentation.
+
+#### Section 7. Challenges
+
+- Data inconsistency: Sale dates were in mixed formats requiring going back and cleaning to standardize.
+
+- Sale amount validation: Some values had invalid characters; these were cleaned by replacing non-numeric entries with zero.
+
+- Large customer base: Too many customers to visualize effectively, resolved by showing only the top 20 and aggregating others.
+
+- Mapping IDs to names: Required joining the fact and dimension tables to improve results.
+
 ## Things to remember
 
 The following are things to refresh my memory:
