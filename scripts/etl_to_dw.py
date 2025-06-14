@@ -16,6 +16,7 @@ PREPARED_DATA_DIR = pathlib.Path("data").joinpath("prepared")
 def create_schema(cursor: sqlite3.Cursor) -> None:
     """ Create tables in the data warehouse if they don't exist."""
 
+    cursor.execute("DROP TABLE IF EXISTS customers")
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS customers (
             customer_id INTEGER PRIMARY KEY,
@@ -27,6 +28,7 @@ def create_schema(cursor: sqlite3.Cursor) -> None:
         )
     """)
     
+    cursor.execute("DROP TABLE IF EXISTS products")
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS products (
             product_id INTEGER PRIMARY KEY,
@@ -38,6 +40,7 @@ def create_schema(cursor: sqlite3.Cursor) -> None:
         )
     """)
     
+    cursor.execute("DROP TABLE IF EXISTS sales")
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS sales (
             sale_id INTEGER PRIMARY KEY,
@@ -54,6 +57,7 @@ def create_schema(cursor: sqlite3.Cursor) -> None:
         )
     """)
 
+    cursor.execute("DROP TABLE IF EXISTS stores")
     cursor.execute("""
         CREATE TABLE stores (
             store_id INTEGER PRIMARY KEY,
@@ -65,6 +69,7 @@ def create_schema(cursor: sqlite3.Cursor) -> None:
         )
     """)
 
+    cursor.execute("DROP TABLE IF EXISTS campaigns")
     cursor.execute("""
         CREATE TABLE campaigns (
             campaign_id INTEGER PRIMARY KEY,

@@ -867,3 +867,1743 @@ dtype: int64
 2025-05-30 00:30:54.053 | INFO     | __main__:main:242 - ==================================
 2025-05-30 00:30:54.053 | INFO     | __main__:main:243 - FINISHED prepare_sales_data.py
 2025-05-30 00:30:54.053 | INFO     | __main__:main:244 - ==================================
+2025-06-13 22:11:57.567 | INFO     | __main__:main:206 - Starting OLAP Cubing process...
+2025-06-13 22:11:57.580 | ERROR    | __main__:ingest_sales_data_from_dw:116 - Error loading sale table data from data warehouse: Execution failed on sql 'SELECT * FROM sale': no such table: sale
+2025-06-13 22:14:05.502 | INFO     | __main__:main:206 - Starting OLAP Cubing process...
+2025-06-13 22:14:05.521 | INFO     | __main__:ingest_sales_data_from_dw:113 - Sales data successfully loaded from SQLite data warehouse.
+2025-06-13 22:30:05.516 | INFO     | __main__:main:189 - ==================================
+2025-06-13 22:30:05.517 | INFO     | __main__:main:190 - STARTING prepare_sales_data.py
+2025-06-13 22:30:05.518 | INFO     | __main__:main:191 - ==================================
+2025-06-13 22:30:05.518 | INFO     | __main__:main:193 - Root         : C:\Repos\smart-store-brittany
+2025-06-13 22:30:05.518 | INFO     | __main__:main:194 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-13 22:30:05.518 | INFO     | __main__:main:195 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-13 22:30:05.518 | INFO     | __main__:main:196 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-13 22:30:05.518 | INFO     | __main__:read_raw_data:66 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-13 22:30:05.519 | INFO     | __main__:read_raw_data:68 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-13 22:30:05.536 | INFO     | __main__:read_raw_data:70 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-13 22:30:05.537 | INFO     | __main__:main:206 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-13 22:30:05.537 | INFO     | __main__:main:207 - Initial dataframe shape: (2001, 9)
+2025-06-13 22:30:05.554 | INFO     | __main__:main:219 - Cleaned column names: TransactionID -> transaction_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-13 22:30:05.555 | INFO     | __main__:remove_duplicates:90 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-13 22:30:05.561 | INFO     | __main__:remove_duplicates:97 - Removed 1 duplicate rows
+2025-06-13 22:30:05.562 | INFO     | __main__:remove_duplicates:98 - 2000 records remaining after removing duplicates.
+2025-06-13 22:30:05.562 | INFO     | __main__:handle_missing_values:112 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-13 22:30:05.565 | INFO     | __main__:handle_missing_values:117 - Missing values by column before handling:
+transaction_id    0
+sale_date         0
+customer_id       0
+product_id        0
+store_id          0
+campaign_id       1
+sale_amount       0
+bonus_points      0
+payment_type      0
+dtype: int64
+2025-06-13 22:30:05.569 | INFO     | __main__:handle_missing_values:124 - Missing values by column after handling:
+transaction_id    0
+sale_date         0
+customer_id       0
+product_id        0
+store_id          0
+campaign_id       1
+sale_amount       0
+bonus_points      0
+payment_type      0
+dtype: int64
+2025-06-13 22:30:05.569 | INFO     | __main__:handle_missing_values:125 - 2000 records remaining after handling missing values.
+2025-06-13 22:30:05.570 | INFO     | __main__:remove_outliers:152 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-13 22:30:05.572 | INFO     | __main__:remove_outliers:158 - Found 506 rows with invalid campaign_id
+2025-06-13 22:30:05.573 | INFO     | __main__:remove_outliers:176 - Removed 506 outlier rows
+2025-06-13 22:30:05.573 | INFO     | __main__:remove_outliers:177 - 1494 records remaining after removing outliers.
+2025-06-13 22:30:05.575 | INFO     | __main__:save_prepared_data:136 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(2000, 9)
+2025-06-13 22:30:05.587 | INFO     | __main__:save_prepared_data:139 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-13 22:30:05.588 | INFO     | __main__:main:239 - ==================================
+2025-06-13 22:30:05.588 | INFO     | __main__:main:240 - Original shape: (2000, 9)
+2025-06-13 22:30:05.588 | INFO     | __main__:main:241 - Cleaned shape:  (2001, 9)
+2025-06-13 22:30:05.588 | INFO     | __main__:main:242 - ==================================
+2025-06-13 22:30:05.589 | INFO     | __main__:main:243 - FINISHED prepare_sales_data.py
+2025-06-13 22:30:05.589 | INFO     | __main__:main:244 - ==================================
+2025-06-13 23:22:13.122 | INFO     | __main__:main:189 - ==================================
+2025-06-13 23:22:13.123 | INFO     | __main__:main:190 - STARTING prepare_sales_data.py
+2025-06-13 23:22:13.124 | INFO     | __main__:main:191 - ==================================
+2025-06-13 23:22:13.124 | INFO     | __main__:main:193 - Root         : C:\Repos\smart-store-brittany
+2025-06-13 23:22:13.125 | INFO     | __main__:main:194 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-13 23:22:13.125 | INFO     | __main__:main:195 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-13 23:22:13.125 | INFO     | __main__:main:196 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-13 23:22:13.125 | INFO     | __main__:read_raw_data:66 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-13 23:22:13.125 | INFO     | __main__:read_raw_data:68 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-13 23:22:13.156 | INFO     | __main__:read_raw_data:70 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-13 23:22:13.157 | INFO     | __main__:main:206 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-13 23:22:13.158 | INFO     | __main__:main:207 - Initial dataframe shape: (2001, 9)
+2025-06-13 23:22:13.158 | INFO     | __main__:remove_duplicates:90 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-13 23:22:13.169 | INFO     | __main__:remove_duplicates:97 - Removed 1 duplicate rows
+2025-06-13 23:22:13.170 | INFO     | __main__:remove_duplicates:98 - 2000 records remaining after removing duplicates.
+2025-06-13 23:22:13.170 | INFO     | __main__:handle_missing_values:112 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-13 23:22:13.172 | INFO     | __main__:handle_missing_values:117 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-13 23:22:13.174 | INFO     | __main__:handle_missing_values:124 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-13 23:22:13.174 | INFO     | __main__:handle_missing_values:125 - 2000 records remaining after handling missing values.
+2025-06-13 23:22:13.175 | INFO     | __main__:remove_outliers:152 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-13 23:22:13.176 | INFO     | __main__:remove_outliers:158 - Found 506 rows with invalid CampaignID
+2025-06-13 23:22:13.177 | INFO     | __main__:remove_outliers:176 - Removed 506 outlier rows
+2025-06-13 23:22:13.177 | INFO     | __main__:remove_outliers:177 - 1494 records remaining after removing outliers.
+2025-06-13 23:22:13.189 | INFO     | __main__:save_prepared_data:136 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(2000, 9)
+2025-06-13 23:22:13.199 | INFO     | __main__:save_prepared_data:139 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-13 23:22:13.200 | INFO     | __main__:main:240 - ==================================
+2025-06-13 23:22:13.200 | INFO     | __main__:main:241 - Original shape: (2000, 9)
+2025-06-13 23:22:13.201 | INFO     | __main__:main:242 - Cleaned shape:  (2001, 9)
+2025-06-13 23:22:13.201 | INFO     | __main__:main:243 - ==================================
+2025-06-13 23:22:13.202 | INFO     | __main__:main:244 - FINISHED prepare_sales_data.py
+2025-06-13 23:22:13.202 | INFO     | __main__:main:245 - ==================================
+2025-06-13 23:29:07.820 | INFO     | __main__:main:192 - ==================================
+2025-06-13 23:29:07.821 | INFO     | __main__:main:193 - STARTING prepare_sales_data.py
+2025-06-13 23:29:07.821 | INFO     | __main__:main:194 - ==================================
+2025-06-13 23:29:07.822 | INFO     | __main__:main:196 - Root         : C:\Repos\smart-store-brittany
+2025-06-13 23:29:07.822 | INFO     | __main__:main:197 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-13 23:29:07.822 | INFO     | __main__:main:198 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-13 23:29:07.822 | INFO     | __main__:main:199 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-13 23:29:07.823 | INFO     | __main__:read_raw_data:66 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-13 23:29:07.823 | INFO     | __main__:read_raw_data:68 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-13 23:29:07.855 | INFO     | __main__:read_raw_data:70 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-13 23:29:07.855 | INFO     | __main__:main:209 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-13 23:29:07.855 | INFO     | __main__:main:210 - Initial dataframe shape: (2001, 9)
+2025-06-13 23:29:07.856 | INFO     | __main__:remove_duplicates:90 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-13 23:29:07.864 | INFO     | __main__:remove_duplicates:97 - Removed duplicate rows:
+%s
+2025-06-13 23:29:07.868 | INFO     | __main__:remove_duplicates:100 - Removed 1 duplicate rows
+2025-06-13 23:29:07.868 | INFO     | __main__:remove_duplicates:101 - 2000 records remaining after removing duplicates.
+2025-06-13 23:29:07.869 | INFO     | __main__:handle_missing_values:115 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-13 23:29:07.871 | INFO     | __main__:handle_missing_values:120 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-13 23:29:07.873 | INFO     | __main__:handle_missing_values:127 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-13 23:29:07.874 | INFO     | __main__:handle_missing_values:128 - 2000 records remaining after handling missing values.
+2025-06-13 23:29:07.874 | INFO     | __main__:remove_outliers:155 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-13 23:29:07.875 | INFO     | __main__:remove_outliers:161 - Found 506 rows with invalid CampaignID
+2025-06-13 23:29:07.877 | INFO     | __main__:remove_outliers:179 - Removed 506 outlier rows
+2025-06-13 23:29:07.877 | INFO     | __main__:remove_outliers:180 - 1494 records remaining after removing outliers.
+2025-06-13 23:29:07.888 | INFO     | __main__:main:238 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-13 23:29:07.888 | INFO     | __main__:save_prepared_data:139 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(2000, 9)
+2025-06-13 23:29:07.900 | INFO     | __main__:save_prepared_data:142 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-13 23:29:07.901 | INFO     | __main__:main:243 - ==================================
+2025-06-13 23:29:07.902 | INFO     | __main__:main:244 - Original shape: (2000, 9)
+2025-06-13 23:29:07.902 | INFO     | __main__:main:245 - Cleaned shape:  (2001, 9)
+2025-06-13 23:29:07.903 | INFO     | __main__:main:246 - ==================================
+2025-06-13 23:29:07.903 | INFO     | __main__:main:247 - FINISHED prepare_sales_data.py
+2025-06-13 23:29:07.904 | INFO     | __main__:main:248 - ==================================
+2025-06-13 23:32:03.478 | INFO     | __main__:main:193 - ==================================
+2025-06-13 23:32:03.479 | INFO     | __main__:main:194 - STARTING prepare_sales_data.py
+2025-06-13 23:32:03.479 | INFO     | __main__:main:195 - ==================================
+2025-06-13 23:32:03.479 | INFO     | __main__:main:197 - Root         : C:\Repos\smart-store-brittany
+2025-06-13 23:32:03.479 | INFO     | __main__:main:198 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-13 23:32:03.479 | INFO     | __main__:main:199 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-13 23:32:03.479 | INFO     | __main__:main:200 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-13 23:32:03.480 | INFO     | __main__:read_raw_data:66 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-13 23:32:03.481 | INFO     | __main__:read_raw_data:68 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-13 23:32:03.489 | INFO     | __main__:read_raw_data:70 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-13 23:32:03.489 | INFO     | __main__:main:210 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-13 23:32:03.489 | INFO     | __main__:main:211 - Initial dataframe shape: (2001, 9)
+2025-06-13 23:32:03.490 | INFO     | __main__:remove_duplicates:90 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-13 23:32:56.448 | INFO     | __main__:main:193 - ==================================
+2025-06-13 23:32:56.449 | INFO     | __main__:main:194 - STARTING prepare_sales_data.py
+2025-06-13 23:32:56.449 | INFO     | __main__:main:195 - ==================================
+2025-06-13 23:32:56.449 | INFO     | __main__:main:197 - Root         : C:\Repos\smart-store-brittany
+2025-06-13 23:32:56.449 | INFO     | __main__:main:198 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-13 23:32:56.449 | INFO     | __main__:main:199 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-13 23:32:56.449 | INFO     | __main__:main:200 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-13 23:32:56.450 | INFO     | __main__:read_raw_data:66 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-13 23:32:56.450 | INFO     | __main__:read_raw_data:68 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-13 23:32:56.460 | INFO     | __main__:read_raw_data:70 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-13 23:32:56.460 | INFO     | __main__:main:210 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-13 23:32:56.461 | INFO     | __main__:main:211 - Initial dataframe shape: (2001, 9)
+2025-06-13 23:32:56.461 | INFO     | __main__:remove_duplicates:90 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-13 23:32:56.472 | INFO     | __main__:remove_duplicates:94 - Removed duplicate rows:
+%s
+2025-06-13 23:32:56.473 | INFO     | __main__:remove_duplicates:101 - Removed 1 duplicate rows
+2025-06-13 23:32:56.473 | INFO     | __main__:remove_duplicates:102 - 2000 records remaining after removing duplicates.
+2025-06-13 23:32:56.473 | INFO     | __main__:handle_missing_values:116 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-13 23:32:56.475 | INFO     | __main__:handle_missing_values:121 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-13 23:32:56.477 | INFO     | __main__:handle_missing_values:128 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-13 23:32:56.477 | INFO     | __main__:handle_missing_values:129 - 2000 records remaining after handling missing values.
+2025-06-13 23:32:56.477 | INFO     | __main__:remove_outliers:156 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-13 23:32:56.478 | INFO     | __main__:remove_outliers:162 - Found 506 rows with invalid CampaignID
+2025-06-13 23:32:56.478 | INFO     | __main__:remove_outliers:180 - Removed 506 outlier rows
+2025-06-13 23:32:56.479 | INFO     | __main__:remove_outliers:181 - 1494 records remaining after removing outliers.
+2025-06-13 23:32:56.486 | INFO     | __main__:main:239 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-13 23:32:56.486 | INFO     | __main__:save_prepared_data:140 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(2000, 9)
+2025-06-13 23:32:56.494 | INFO     | __main__:save_prepared_data:143 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-13 23:32:56.495 | INFO     | __main__:main:244 - ==================================
+2025-06-13 23:32:56.495 | INFO     | __main__:main:245 - Original shape: (2000, 9)
+2025-06-13 23:32:56.495 | INFO     | __main__:main:246 - Cleaned shape:  (2001, 9)
+2025-06-13 23:32:56.496 | INFO     | __main__:main:247 - ==================================
+2025-06-13 23:32:56.496 | INFO     | __main__:main:248 - FINISHED prepare_sales_data.py
+2025-06-13 23:32:56.496 | INFO     | __main__:main:249 - ==================================
+2025-06-13 23:41:48.297 | INFO     | __main__:main:189 - ==================================
+2025-06-13 23:41:48.297 | INFO     | __main__:main:190 - STARTING prepare_sales_data.py
+2025-06-13 23:41:48.297 | INFO     | __main__:main:191 - ==================================
+2025-06-13 23:41:48.298 | INFO     | __main__:main:193 - Root         : C:\Repos\smart-store-brittany
+2025-06-13 23:41:48.298 | INFO     | __main__:main:194 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-13 23:41:48.298 | INFO     | __main__:main:195 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-13 23:41:48.298 | INFO     | __main__:main:196 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-13 23:41:48.298 | INFO     | __main__:read_raw_data:66 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-13 23:41:48.299 | INFO     | __main__:read_raw_data:68 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-13 23:41:48.306 | INFO     | __main__:read_raw_data:70 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-13 23:41:48.307 | INFO     | __main__:main:206 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-13 23:41:48.307 | INFO     | __main__:main:207 - Initial dataframe shape: (2001, 9)
+2025-06-13 23:41:48.307 | INFO     | __main__:remove_duplicates:86 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-13 23:41:48.315 | INFO     | __main__:remove_duplicates:90 - Duplicate rows:
+%s
+2025-06-13 23:41:48.317 | INFO     | __main__:remove_duplicates:97 - Removed 1 duplicate rows
+2025-06-13 23:41:48.317 | INFO     | __main__:remove_duplicates:98 - 2000 records remaining after removing duplicates.
+2025-06-13 23:41:48.318 | INFO     | __main__:handle_missing_values:112 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-13 23:41:48.319 | INFO     | __main__:handle_missing_values:117 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-13 23:41:48.321 | INFO     | __main__:handle_missing_values:124 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-13 23:41:48.322 | INFO     | __main__:handle_missing_values:125 - 2000 records remaining after handling missing values.
+2025-06-13 23:41:48.323 | INFO     | __main__:remove_outliers:152 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-13 23:41:48.324 | INFO     | __main__:remove_outliers:158 - Found 506 rows with invalid CampaignID
+2025-06-13 23:41:48.325 | INFO     | __main__:remove_outliers:176 - Removed 506 outlier rows
+2025-06-13 23:41:48.325 | INFO     | __main__:remove_outliers:177 - 1494 records remaining after removing outliers.
+2025-06-13 23:41:48.329 | INFO     | __main__:main:235 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-13 23:41:48.329 | INFO     | __main__:save_prepared_data:136 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(2000, 9)
+2025-06-13 23:41:48.340 | INFO     | __main__:save_prepared_data:139 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-13 23:41:48.340 | INFO     | __main__:main:240 - ==================================
+2025-06-13 23:41:48.341 | INFO     | __main__:main:241 - Original shape: (2000, 9)
+2025-06-13 23:41:48.341 | INFO     | __main__:main:242 - Cleaned shape:  (2001, 9)
+2025-06-13 23:41:48.341 | INFO     | __main__:main:243 - ==================================
+2025-06-13 23:41:48.341 | INFO     | __main__:main:244 - FINISHED prepare_sales_data.py
+2025-06-13 23:41:48.342 | INFO     | __main__:main:245 - ==================================
+2025-06-13 23:42:30.485 | INFO     | __main__:main:189 - ==================================
+2025-06-13 23:42:30.486 | INFO     | __main__:main:190 - STARTING prepare_sales_data.py
+2025-06-13 23:42:30.486 | INFO     | __main__:main:191 - ==================================
+2025-06-13 23:42:30.486 | INFO     | __main__:main:193 - Root         : C:\Repos\smart-store-brittany
+2025-06-13 23:42:30.486 | INFO     | __main__:main:194 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-13 23:42:30.486 | INFO     | __main__:main:195 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-13 23:42:30.487 | INFO     | __main__:main:196 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-13 23:42:30.487 | INFO     | __main__:read_raw_data:66 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-13 23:42:30.487 | INFO     | __main__:read_raw_data:68 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-13 23:42:30.493 | INFO     | __main__:read_raw_data:70 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-13 23:42:30.494 | INFO     | __main__:main:206 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-13 23:42:30.495 | INFO     | __main__:main:207 - Initial dataframe shape: (2001, 9)
+2025-06-13 23:42:30.495 | INFO     | __main__:remove_duplicates:86 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-13 23:42:30.501 | INFO     | __main__:remove_duplicates:90 - Duplicate rows: %s
+2025-06-13 23:42:30.504 | INFO     | __main__:remove_duplicates:97 - Removed 1 duplicate rows
+2025-06-13 23:42:30.504 | INFO     | __main__:remove_duplicates:98 - 2000 records remaining after removing duplicates.
+2025-06-13 23:42:30.504 | INFO     | __main__:handle_missing_values:112 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-13 23:42:30.505 | INFO     | __main__:handle_missing_values:117 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-13 23:42:30.507 | INFO     | __main__:handle_missing_values:124 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-13 23:42:30.507 | INFO     | __main__:handle_missing_values:125 - 2000 records remaining after handling missing values.
+2025-06-13 23:42:30.507 | INFO     | __main__:remove_outliers:152 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-13 23:42:30.508 | INFO     | __main__:remove_outliers:158 - Found 506 rows with invalid CampaignID
+2025-06-13 23:42:30.509 | INFO     | __main__:remove_outliers:176 - Removed 506 outlier rows
+2025-06-13 23:42:30.509 | INFO     | __main__:remove_outliers:177 - 1494 records remaining after removing outliers.
+2025-06-13 23:42:30.512 | INFO     | __main__:main:235 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-13 23:42:30.513 | INFO     | __main__:save_prepared_data:136 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(2000, 9)
+2025-06-13 23:42:30.523 | INFO     | __main__:save_prepared_data:139 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-13 23:42:30.524 | INFO     | __main__:main:240 - ==================================
+2025-06-13 23:42:30.524 | INFO     | __main__:main:241 - Original shape: (2000, 9)
+2025-06-13 23:42:30.524 | INFO     | __main__:main:242 - Cleaned shape:  (2001, 9)
+2025-06-13 23:42:30.525 | INFO     | __main__:main:243 - ==================================
+2025-06-13 23:42:30.525 | INFO     | __main__:main:244 - FINISHED prepare_sales_data.py
+2025-06-13 23:42:30.525 | INFO     | __main__:main:245 - ==================================
+2025-06-13 23:44:49.104 | INFO     | __main__:main:189 - ==================================
+2025-06-13 23:44:49.105 | INFO     | __main__:main:190 - STARTING prepare_sales_data.py
+2025-06-13 23:44:49.105 | INFO     | __main__:main:191 - ==================================
+2025-06-13 23:44:49.105 | INFO     | __main__:main:193 - Root         : C:\Repos\smart-store-brittany
+2025-06-13 23:44:49.105 | INFO     | __main__:main:194 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-13 23:44:49.106 | INFO     | __main__:main:195 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-13 23:44:49.106 | INFO     | __main__:main:196 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-13 23:44:49.106 | INFO     | __main__:read_raw_data:66 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-13 23:44:49.106 | INFO     | __main__:read_raw_data:68 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-13 23:44:49.116 | INFO     | __main__:read_raw_data:70 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-13 23:44:49.116 | INFO     | __main__:main:206 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-13 23:44:49.116 | INFO     | __main__:main:207 - Initial dataframe shape: (2001, 9)
+2025-06-13 23:44:49.117 | INFO     | __main__:remove_duplicates:86 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-13 23:44:49.123 | INFO     | __main__:remove_duplicates:91 - Duplicate rows:
+%s
+2025-06-13 23:44:49.124 | INFO     | __main__:remove_duplicates:97 - Removed 1 duplicate rows
+2025-06-13 23:44:49.125 | INFO     | __main__:remove_duplicates:98 - 2000 records remaining after removing duplicates.
+2025-06-13 23:44:49.125 | INFO     | __main__:handle_missing_values:112 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-13 23:44:49.129 | INFO     | __main__:handle_missing_values:117 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-13 23:44:49.132 | INFO     | __main__:handle_missing_values:124 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-13 23:44:49.132 | INFO     | __main__:handle_missing_values:125 - 2000 records remaining after handling missing values.
+2025-06-13 23:44:49.132 | INFO     | __main__:remove_outliers:152 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-13 23:44:49.134 | INFO     | __main__:remove_outliers:158 - Found 506 rows with invalid CampaignID
+2025-06-13 23:44:49.135 | INFO     | __main__:remove_outliers:176 - Removed 506 outlier rows
+2025-06-13 23:44:49.135 | INFO     | __main__:remove_outliers:177 - 1494 records remaining after removing outliers.
+2025-06-13 23:44:49.139 | INFO     | __main__:main:235 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-13 23:44:49.140 | INFO     | __main__:save_prepared_data:136 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(2000, 9)
+2025-06-13 23:44:49.154 | INFO     | __main__:save_prepared_data:139 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-13 23:44:49.154 | INFO     | __main__:main:240 - ==================================
+2025-06-13 23:44:49.154 | INFO     | __main__:main:241 - Original shape: (2000, 9)
+2025-06-13 23:44:49.154 | INFO     | __main__:main:242 - Cleaned shape:  (2001, 9)
+2025-06-13 23:44:49.155 | INFO     | __main__:main:243 - ==================================
+2025-06-13 23:44:49.155 | INFO     | __main__:main:244 - FINISHED prepare_sales_data.py
+2025-06-13 23:44:49.155 | INFO     | __main__:main:245 - ==================================
+2025-06-13 23:45:08.088 | INFO     | __main__:main:189 - ==================================
+2025-06-13 23:45:08.088 | INFO     | __main__:main:190 - STARTING prepare_sales_data.py
+2025-06-13 23:45:08.089 | INFO     | __main__:main:191 - ==================================
+2025-06-13 23:45:08.089 | INFO     | __main__:main:193 - Root         : C:\Repos\smart-store-brittany
+2025-06-13 23:45:08.089 | INFO     | __main__:main:194 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-13 23:45:08.089 | INFO     | __main__:main:195 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-13 23:45:08.090 | INFO     | __main__:main:196 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-13 23:45:08.090 | INFO     | __main__:read_raw_data:66 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-13 23:45:08.090 | INFO     | __main__:read_raw_data:68 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-13 23:45:08.098 | INFO     | __main__:read_raw_data:70 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-13 23:45:08.099 | INFO     | __main__:main:206 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-13 23:45:08.100 | INFO     | __main__:main:207 - Initial dataframe shape: (2001, 9)
+2025-06-13 23:45:08.100 | INFO     | __main__:remove_duplicates:86 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-13 23:45:08.109 | INFO     | __main__:remove_duplicates:91 - Duplicate rows:
+%s
+2025-06-13 23:45:08.110 | INFO     | __main__:remove_duplicates:97 - Removed 1 duplicate rows
+2025-06-13 23:45:08.110 | INFO     | __main__:remove_duplicates:98 - 2000 records remaining after removing duplicates.
+2025-06-13 23:45:08.110 | INFO     | __main__:handle_missing_values:112 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-13 23:45:08.112 | INFO     | __main__:handle_missing_values:117 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-13 23:45:08.113 | INFO     | __main__:handle_missing_values:124 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-13 23:45:08.114 | INFO     | __main__:handle_missing_values:125 - 2000 records remaining after handling missing values.
+2025-06-13 23:45:08.114 | INFO     | __main__:remove_outliers:152 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-13 23:45:08.115 | INFO     | __main__:remove_outliers:158 - Found 506 rows with invalid CampaignID
+2025-06-13 23:45:08.118 | INFO     | __main__:remove_outliers:176 - Removed 506 outlier rows
+2025-06-13 23:45:08.118 | INFO     | __main__:remove_outliers:177 - 1494 records remaining after removing outliers.
+2025-06-13 23:45:08.124 | INFO     | __main__:main:235 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-13 23:45:08.125 | INFO     | __main__:save_prepared_data:136 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(2000, 9)
+2025-06-13 23:45:08.136 | INFO     | __main__:save_prepared_data:139 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-13 23:45:08.137 | INFO     | __main__:main:240 - ==================================
+2025-06-13 23:45:08.137 | INFO     | __main__:main:241 - Original shape: (2000, 9)
+2025-06-13 23:45:08.137 | INFO     | __main__:main:242 - Cleaned shape:  (2001, 9)
+2025-06-13 23:45:08.138 | INFO     | __main__:main:243 - ==================================
+2025-06-13 23:45:08.138 | INFO     | __main__:main:244 - FINISHED prepare_sales_data.py
+2025-06-13 23:45:08.138 | INFO     | __main__:main:245 - ==================================
+2025-06-13 23:46:33.459 | INFO     | __main__:main:190 - ==================================
+2025-06-13 23:46:33.460 | INFO     | __main__:main:191 - STARTING prepare_sales_data.py
+2025-06-13 23:46:33.461 | INFO     | __main__:main:192 - ==================================
+2025-06-13 23:46:33.461 | INFO     | __main__:main:194 - Root         : C:\Repos\smart-store-brittany
+2025-06-13 23:46:33.461 | INFO     | __main__:main:195 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-13 23:46:33.462 | INFO     | __main__:main:196 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-13 23:46:33.462 | INFO     | __main__:main:197 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-13 23:46:33.462 | INFO     | __main__:read_raw_data:66 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-13 23:46:33.462 | INFO     | __main__:read_raw_data:68 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-13 23:46:33.470 | INFO     | __main__:read_raw_data:70 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-13 23:46:33.471 | INFO     | __main__:main:207 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-13 23:46:33.471 | INFO     | __main__:main:208 - Initial dataframe shape: (2001, 9)
+2025-06-13 23:46:33.471 | INFO     | __main__:remove_duplicates:86 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-13 23:46:33.476 | INFO     | __main__:remove_duplicates:91 - Duplicate rows:
+ TransactionID SaleDate  CustomerID  ProductID  StoreID  CampaignID SaleAmount  BonusPoints PaymentType
+             6 5/4/2025        1089       2028      401         0.0    1275.88          519      Credit
+2025-06-13 23:46:33.477 | INFO     | __main__:remove_duplicates:98 - Removed 1 duplicate rows
+2025-06-13 23:46:33.477 | INFO     | __main__:remove_duplicates:99 - 2000 records remaining after removing duplicates.
+2025-06-13 23:46:33.478 | INFO     | __main__:handle_missing_values:113 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-13 23:46:33.479 | INFO     | __main__:handle_missing_values:118 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-13 23:46:33.481 | INFO     | __main__:handle_missing_values:125 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-13 23:46:33.482 | INFO     | __main__:handle_missing_values:126 - 2000 records remaining after handling missing values.
+2025-06-13 23:46:33.482 | INFO     | __main__:remove_outliers:153 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-13 23:46:33.484 | INFO     | __main__:remove_outliers:159 - Found 506 rows with invalid CampaignID
+2025-06-13 23:46:33.485 | INFO     | __main__:remove_outliers:177 - Removed 506 outlier rows
+2025-06-13 23:46:33.485 | INFO     | __main__:remove_outliers:178 - 1494 records remaining after removing outliers.
+2025-06-13 23:46:33.492 | INFO     | __main__:main:236 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-13 23:46:33.493 | INFO     | __main__:save_prepared_data:137 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(2000, 9)
+2025-06-13 23:46:33.505 | INFO     | __main__:save_prepared_data:140 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-13 23:46:33.506 | INFO     | __main__:main:241 - ==================================
+2025-06-13 23:46:33.506 | INFO     | __main__:main:242 - Original shape: (2000, 9)
+2025-06-13 23:46:33.507 | INFO     | __main__:main:243 - Cleaned shape:  (2001, 9)
+2025-06-13 23:46:33.507 | INFO     | __main__:main:244 - ==================================
+2025-06-13 23:46:33.507 | INFO     | __main__:main:245 - FINISHED prepare_sales_data.py
+2025-06-13 23:46:33.507 | INFO     | __main__:main:246 - ==================================
+2025-06-14 00:01:17.946 | INFO     | __main__:main:183 - ==================================
+2025-06-14 00:01:17.947 | INFO     | __main__:main:184 - STARTING prepare_sales_data.py
+2025-06-14 00:01:17.947 | INFO     | __main__:main:185 - ==================================
+2025-06-14 00:01:17.947 | INFO     | __main__:main:187 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 00:01:17.947 | INFO     | __main__:main:188 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 00:01:17.948 | INFO     | __main__:main:189 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 00:01:17.948 | INFO     | __main__:main:190 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 00:01:17.948 | INFO     | __main__:read_raw_data:66 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 00:01:17.949 | INFO     | __main__:read_raw_data:68 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 00:01:17.956 | INFO     | __main__:read_raw_data:70 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 00:01:17.956 | INFO     | __main__:main:200 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 00:01:17.957 | INFO     | __main__:main:201 - Initial dataframe shape: (2001, 9)
+2025-06-14 00:01:17.957 | INFO     | __main__:remove_duplicates:84 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 00:01:17.958 | INFO     | __main__:remove_duplicates:91 - Removed 1 duplicate rows
+2025-06-14 00:01:17.958 | INFO     | __main__:remove_duplicates:92 - 2000 records remaining after removing duplicates.
+2025-06-14 00:01:17.958 | INFO     | __main__:handle_missing_values:106 - FUNCTION START: handle_missing_values with dataframe shape=(2001, 9)
+2025-06-14 00:01:17.960 | INFO     | __main__:handle_missing_values:111 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:01:17.962 | INFO     | __main__:handle_missing_values:118 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:01:17.963 | INFO     | __main__:handle_missing_values:119 - 2001 records remaining after handling missing values.
+2025-06-14 00:01:17.963 | INFO     | __main__:remove_outliers:146 - FUNCTION START: remove_outliers with dataframe shape=(2001, 9)
+2025-06-14 00:01:17.964 | INFO     | __main__:remove_outliers:152 - Found 507 rows with invalid CampaignID
+2025-06-14 00:01:17.965 | INFO     | __main__:remove_outliers:170 - Removed 507 outlier rows
+2025-06-14 00:01:17.965 | INFO     | __main__:remove_outliers:171 - 1494 records remaining after removing outliers.
+2025-06-14 00:01:17.971 | INFO     | __main__:main:229 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 00:01:17.971 | INFO     | __main__:save_prepared_data:130 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(2000, 9)
+2025-06-14 00:01:17.982 | INFO     | __main__:save_prepared_data:133 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 00:01:17.983 | INFO     | __main__:main:234 - ==================================
+2025-06-14 00:01:17.984 | INFO     | __main__:main:235 - Original shape: (2000, 9)
+2025-06-14 00:01:17.984 | INFO     | __main__:main:236 - Cleaned shape:  (2001, 9)
+2025-06-14 00:01:17.985 | INFO     | __main__:main:237 - ==================================
+2025-06-14 00:01:17.985 | INFO     | __main__:main:238 - FINISHED prepare_sales_data.py
+2025-06-14 00:01:17.985 | INFO     | __main__:main:239 - ==================================
+2025-06-14 00:10:33.001 | INFO     | __main__:main:115 - ==================================
+2025-06-14 00:10:33.002 | INFO     | __main__:main:116 - STARTING prepare_sales_data.py
+2025-06-14 00:10:33.002 | INFO     | __main__:main:117 - ==================================
+2025-06-14 00:10:33.002 | INFO     | __main__:main:119 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 00:10:33.002 | INFO     | __main__:main:120 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 00:10:33.002 | INFO     | __main__:main:121 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 00:10:33.002 | INFO     | __main__:main:122 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 00:10:33.003 | INFO     | __main__:read_raw_data:101 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 00:10:33.003 | INFO     | __main__:read_raw_data:103 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 00:10:33.009 | INFO     | __main__:read_raw_data:105 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 00:10:33.009 | INFO     | __main__:main:131 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 00:10:33.009 | INFO     | __main__:main:132 - Initial dataframe shape: (2001, 9)
+2025-06-14 00:10:33.010 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 00:10:33.011 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 00:10:33.012 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 00:10:33.012 | INFO     | __main__:handle_missing_values:62 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 00:10:33.014 | INFO     | __main__:handle_missing_values:65 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:10:33.022 | INFO     | __main__:handle_missing_values:70 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:10:33.022 | INFO     | __main__:handle_missing_values:71 - 2000 records remaining after handling missing values.
+2025-06-14 00:10:33.023 | INFO     | __main__:remove_outliers:77 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-14 00:10:33.024 | INFO     | __main__:remove_outliers:81 - Found 506 rows with invalid CampaignID
+2025-06-14 00:10:33.024 | INFO     | __main__:remove_outliers:86 - Removed 506 outlier rows
+2025-06-14 00:10:33.025 | INFO     | __main__:remove_outliers:87 - 1494 records remaining after removing outliers.
+2025-06-14 00:10:33.028 | INFO     | __main__:main:146 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 00:10:33.029 | INFO     | __main__:save_prepared_data:109 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1494, 9)
+2025-06-14 00:10:33.039 | INFO     | __main__:save_prepared_data:112 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 00:10:33.039 | INFO     | __main__:main:150 - ==================================
+2025-06-14 00:10:33.039 | INFO     | __main__:main:151 - Original shape: (2001, 9)
+2025-06-14 00:10:33.039 | INFO     | __main__:main:152 - Cleaned shape:  (1494, 9)
+2025-06-14 00:10:33.040 | INFO     | __main__:main:153 - ==================================
+2025-06-14 00:10:33.040 | INFO     | __main__:main:154 - FINISHED prepare_sales_data.py
+2025-06-14 00:10:33.040 | INFO     | __main__:main:155 - ==================================
+2025-06-14 00:10:51.654 | INFO     | __main__:main:115 - ==================================
+2025-06-14 00:10:51.654 | INFO     | __main__:main:116 - STARTING prepare_sales_data.py
+2025-06-14 00:10:51.655 | INFO     | __main__:main:117 - ==================================
+2025-06-14 00:10:51.655 | INFO     | __main__:main:119 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 00:10:51.655 | INFO     | __main__:main:120 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 00:10:51.655 | INFO     | __main__:main:121 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 00:10:51.655 | INFO     | __main__:main:122 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 00:10:51.656 | INFO     | __main__:read_raw_data:101 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 00:10:51.656 | INFO     | __main__:read_raw_data:103 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 00:10:51.663 | INFO     | __main__:read_raw_data:105 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 00:10:51.663 | INFO     | __main__:main:131 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 00:10:51.663 | INFO     | __main__:main:132 - Initial dataframe shape: (2001, 9)
+2025-06-14 00:10:51.664 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 00:10:51.665 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 00:10:51.666 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 00:10:51.666 | INFO     | __main__:handle_missing_values:62 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 00:10:51.669 | INFO     | __main__:handle_missing_values:65 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:10:51.676 | INFO     | __main__:handle_missing_values:70 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:10:51.677 | INFO     | __main__:handle_missing_values:71 - 2000 records remaining after handling missing values.
+2025-06-14 00:10:51.677 | INFO     | __main__:remove_outliers:77 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-14 00:10:51.678 | INFO     | __main__:remove_outliers:81 - Found 506 rows with invalid CampaignID
+2025-06-14 00:10:51.679 | INFO     | __main__:remove_outliers:86 - Removed 506 outlier rows
+2025-06-14 00:10:51.679 | INFO     | __main__:remove_outliers:87 - 1494 records remaining after removing outliers.
+2025-06-14 00:10:51.684 | INFO     | __main__:main:146 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 00:10:51.684 | INFO     | __main__:save_prepared_data:109 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1494, 9)
+2025-06-14 00:10:51.695 | INFO     | __main__:save_prepared_data:112 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 00:10:51.696 | INFO     | __main__:main:150 - ==================================
+2025-06-14 00:10:51.696 | INFO     | __main__:main:151 - Original shape: (2001, 9)
+2025-06-14 00:10:51.696 | INFO     | __main__:main:152 - Cleaned shape:  (1494, 9)
+2025-06-14 00:10:51.696 | INFO     | __main__:main:153 - ==================================
+2025-06-14 00:10:51.697 | INFO     | __main__:main:154 - FINISHED prepare_sales_data.py
+2025-06-14 00:10:51.697 | INFO     | __main__:main:155 - ==================================
+2025-06-14 00:13:04.928 | INFO     | __main__:main:118 - ==================================
+2025-06-14 00:13:04.928 | INFO     | __main__:main:119 - STARTING prepare_sales_data.py
+2025-06-14 00:13:04.929 | INFO     | __main__:main:120 - ==================================
+2025-06-14 00:13:04.929 | INFO     | __main__:main:122 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 00:13:04.929 | INFO     | __main__:main:123 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 00:13:04.929 | INFO     | __main__:main:124 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 00:13:04.929 | INFO     | __main__:main:125 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 00:13:04.930 | INFO     | __main__:read_raw_data:104 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 00:13:04.930 | INFO     | __main__:read_raw_data:106 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 00:13:04.936 | INFO     | __main__:read_raw_data:108 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 00:13:04.937 | INFO     | __main__:main:134 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 00:13:04.937 | INFO     | __main__:main:135 - Initial dataframe shape: (2001, 9)
+2025-06-14 00:13:04.937 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 00:13:04.938 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 00:13:04.939 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 00:13:04.940 | INFO     | __main__:handle_missing_values:63 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 00:13:04.943 | INFO     | __main__:handle_missing_values:66 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:13:04.946 | INFO     | __main__:handle_missing_values:72 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:13:04.946 | INFO     | __main__:handle_missing_values:73 - 2000 records remaining after handling missing values.
+2025-06-14 00:13:04.946 | INFO     | __main__:remove_outliers:80 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-14 00:13:04.948 | INFO     | __main__:remove_outliers:84 - Found 506 rows with invalid CampaignID
+2025-06-14 00:13:04.948 | INFO     | __main__:remove_outliers:89 - Removed 506 outlier rows
+2025-06-14 00:13:04.949 | INFO     | __main__:remove_outliers:90 - 1494 records remaining after removing outliers.
+2025-06-14 00:13:04.956 | INFO     | __main__:main:149 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 00:13:04.956 | INFO     | __main__:save_prepared_data:112 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1494, 9)
+2025-06-14 00:13:04.962 | INFO     | __main__:save_prepared_data:115 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 00:13:04.963 | INFO     | __main__:main:153 - ==================================
+2025-06-14 00:13:04.963 | INFO     | __main__:main:154 - Original shape: (2001, 9)
+2025-06-14 00:13:04.963 | INFO     | __main__:main:155 - Cleaned shape:  (1494, 9)
+2025-06-14 00:13:04.963 | INFO     | __main__:main:156 - ==================================
+2025-06-14 00:13:04.963 | INFO     | __main__:main:157 - FINISHED prepare_sales_data.py
+2025-06-14 00:13:04.963 | INFO     | __main__:main:158 - ==================================
+2025-06-14 00:14:35.155 | INFO     | __main__:main:117 - ==================================
+2025-06-14 00:14:35.155 | INFO     | __main__:main:118 - STARTING prepare_sales_data.py
+2025-06-14 00:14:35.156 | INFO     | __main__:main:119 - ==================================
+2025-06-14 00:14:35.156 | INFO     | __main__:main:121 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 00:14:35.156 | INFO     | __main__:main:122 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 00:14:35.157 | INFO     | __main__:main:123 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 00:14:35.157 | INFO     | __main__:main:124 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 00:14:35.157 | INFO     | __main__:read_raw_data:103 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 00:14:35.158 | INFO     | __main__:read_raw_data:105 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 00:14:35.167 | INFO     | __main__:read_raw_data:107 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 00:14:35.168 | INFO     | __main__:main:133 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 00:14:35.168 | INFO     | __main__:main:134 - Initial dataframe shape: (2001, 9)
+2025-06-14 00:14:35.168 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 00:14:35.170 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 00:14:35.171 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 00:14:35.174 | INFO     | __main__:handle_missing_values:63 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 00:14:35.176 | INFO     | __main__:handle_missing_values:66 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:14:35.179 | INFO     | __main__:handle_missing_values:72 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:14:35.180 | INFO     | __main__:handle_missing_values:73 - 2000 records remaining after handling missing values.
+2025-06-14 00:14:35.180 | INFO     | __main__:remove_outliers:79 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-14 00:14:35.181 | INFO     | __main__:remove_outliers:83 - Found 506 rows with invalid CampaignID
+2025-06-14 00:14:35.182 | INFO     | __main__:remove_outliers:88 - Removed 506 outlier rows
+2025-06-14 00:14:35.182 | INFO     | __main__:remove_outliers:89 - 1494 records remaining after removing outliers.
+2025-06-14 00:14:35.189 | INFO     | __main__:main:148 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 00:14:35.190 | INFO     | __main__:save_prepared_data:111 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1494, 9)
+2025-06-14 00:14:35.198 | INFO     | __main__:save_prepared_data:114 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 00:14:35.199 | INFO     | __main__:main:152 - ==================================
+2025-06-14 00:14:35.199 | INFO     | __main__:main:153 - Original shape: (2001, 9)
+2025-06-14 00:14:35.199 | INFO     | __main__:main:154 - Cleaned shape:  (1494, 9)
+2025-06-14 00:14:35.199 | INFO     | __main__:main:155 - ==================================
+2025-06-14 00:14:35.200 | INFO     | __main__:main:156 - FINISHED prepare_sales_data.py
+2025-06-14 00:14:35.200 | INFO     | __main__:main:157 - ==================================
+2025-06-14 00:29:22.649 | INFO     | __main__:main:116 - ==================================
+2025-06-14 00:29:22.650 | INFO     | __main__:main:117 - STARTING prepare_sales_data.py
+2025-06-14 00:29:22.650 | INFO     | __main__:main:118 - ==================================
+2025-06-14 00:29:22.651 | INFO     | __main__:main:120 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 00:29:22.651 | INFO     | __main__:main:121 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 00:29:22.651 | INFO     | __main__:main:122 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 00:29:22.651 | INFO     | __main__:main:123 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 00:29:22.651 | INFO     | __main__:read_raw_data:102 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 00:29:22.652 | INFO     | __main__:read_raw_data:104 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 00:29:22.672 | INFO     | __main__:read_raw_data:106 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 00:29:22.672 | INFO     | __main__:main:132 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 00:29:22.672 | INFO     | __main__:main:133 - Initial dataframe shape: (2001, 9)
+2025-06-14 00:29:22.673 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 00:29:22.674 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 00:29:22.675 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 00:29:22.675 | INFO     | __main__:handle_missing_values:63 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 00:29:22.677 | INFO     | __main__:handle_missing_values:66 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:29:22.680 | INFO     | __main__:handle_missing_values:71 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:29:22.680 | INFO     | __main__:handle_missing_values:72 - 2000 records remaining after handling missing values.
+2025-06-14 00:29:22.681 | INFO     | __main__:remove_outliers:78 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-14 00:29:22.684 | INFO     | __main__:remove_outliers:82 - Found 506 rows with invalid CampaignID
+2025-06-14 00:29:22.685 | INFO     | __main__:remove_outliers:87 - Removed 506 outlier rows
+2025-06-14 00:29:22.685 | INFO     | __main__:remove_outliers:88 - 1494 records remaining after removing outliers.
+2025-06-14 00:29:22.690 | INFO     | __main__:main:147 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 00:29:22.690 | INFO     | __main__:save_prepared_data:110 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1494, 9)
+2025-06-14 00:29:22.698 | INFO     | __main__:save_prepared_data:113 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 00:29:22.699 | INFO     | __main__:main:151 - ==================================
+2025-06-14 00:29:22.700 | INFO     | __main__:main:152 - Original shape: (2001, 9)
+2025-06-14 00:29:22.700 | INFO     | __main__:main:153 - Cleaned shape:  (1494, 9)
+2025-06-14 00:29:22.700 | INFO     | __main__:main:154 - ==================================
+2025-06-14 00:29:22.700 | INFO     | __main__:main:155 - FINISHED prepare_sales_data.py
+2025-06-14 00:29:22.700 | INFO     | __main__:main:156 - ==================================
+2025-06-14 00:33:30.568 | INFO     | __main__:main:119 - ==================================
+2025-06-14 00:33:30.569 | INFO     | __main__:main:120 - STARTING prepare_sales_data.py
+2025-06-14 00:33:30.569 | INFO     | __main__:main:121 - ==================================
+2025-06-14 00:33:30.569 | INFO     | __main__:main:123 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 00:33:30.569 | INFO     | __main__:main:124 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 00:33:30.569 | INFO     | __main__:main:125 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 00:33:30.570 | INFO     | __main__:main:126 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 00:33:30.570 | INFO     | __main__:read_raw_data:105 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 00:33:30.570 | INFO     | __main__:read_raw_data:107 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 00:33:30.577 | INFO     | __main__:read_raw_data:109 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 00:33:30.577 | INFO     | __main__:main:135 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 00:33:30.578 | INFO     | __main__:main:136 - Initial dataframe shape: (2001, 9)
+2025-06-14 00:33:30.578 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 00:33:30.579 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 00:33:30.580 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 00:33:30.580 | INFO     | __main__:handle_missing_values:63 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 00:33:30.584 | INFO     | __main__:handle_missing_values:66 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:33:30.586 | INFO     | __main__:handle_missing_values:71 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:33:30.587 | INFO     | __main__:handle_missing_values:72 - 2000 records remaining after handling missing values.
+2025-06-14 00:33:30.587 | INFO     | __main__:remove_outliers:78 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-14 00:33:30.588 | INFO     | __main__:remove_outliers:82 - Found 506 rows with invalid CampaignID
+2025-06-14 00:33:30.593 | INFO     | __main__:remove_outliers:90 - Removed 506 outlier rows
+2025-06-14 00:33:30.593 | INFO     | __main__:remove_outliers:91 - 1494 records remaining after removing outliers.
+2025-06-14 00:33:30.597 | INFO     | __main__:main:150 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 00:33:30.598 | INFO     | __main__:save_prepared_data:113 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1494, 9)
+2025-06-14 00:33:30.606 | INFO     | __main__:save_prepared_data:116 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 00:33:30.607 | INFO     | __main__:main:154 - ==================================
+2025-06-14 00:33:30.607 | INFO     | __main__:main:155 - Original shape: (2001, 9)
+2025-06-14 00:33:30.607 | INFO     | __main__:main:156 - Cleaned shape:  (1494, 9)
+2025-06-14 00:33:30.607 | INFO     | __main__:main:157 - ==================================
+2025-06-14 00:33:30.608 | INFO     | __main__:main:158 - FINISHED prepare_sales_data.py
+2025-06-14 00:33:30.608 | INFO     | __main__:main:159 - ==================================
+2025-06-14 00:34:26.650 | INFO     | __main__:main:120 - ==================================
+2025-06-14 00:34:26.651 | INFO     | __main__:main:121 - STARTING prepare_sales_data.py
+2025-06-14 00:34:26.651 | INFO     | __main__:main:122 - ==================================
+2025-06-14 00:34:26.651 | INFO     | __main__:main:124 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 00:34:26.651 | INFO     | __main__:main:125 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 00:34:26.652 | INFO     | __main__:main:126 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 00:34:26.652 | INFO     | __main__:main:127 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 00:34:26.652 | INFO     | __main__:read_raw_data:106 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 00:34:26.652 | INFO     | __main__:read_raw_data:108 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 00:34:26.659 | INFO     | __main__:read_raw_data:110 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 00:34:26.659 | INFO     | __main__:main:136 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 00:34:26.659 | INFO     | __main__:main:137 - Initial dataframe shape: (2001, 9)
+2025-06-14 00:34:26.660 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 00:34:26.661 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 00:34:26.661 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 00:34:26.661 | INFO     | __main__:handle_missing_values:63 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 00:34:26.663 | INFO     | __main__:handle_missing_values:66 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:34:26.665 | INFO     | __main__:handle_missing_values:71 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:34:26.665 | INFO     | __main__:handle_missing_values:72 - 2000 records remaining after handling missing values.
+2025-06-14 00:34:26.666 | INFO     | __main__:remove_outliers:78 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-14 00:34:26.668 | INFO     | __main__:remove_outliers:82 - Found 506 rows with invalid CampaignID
+2025-06-14 00:34:26.671 | INFO     | __main__:remove_outliers:91 - Removed 506 outlier rows
+2025-06-14 00:34:26.672 | INFO     | __main__:remove_outliers:92 - 1494 records remaining after removing outliers.
+2025-06-14 00:34:26.675 | INFO     | __main__:main:151 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 00:34:26.676 | INFO     | __main__:save_prepared_data:114 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1494, 9)
+2025-06-14 00:34:26.684 | INFO     | __main__:save_prepared_data:117 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 00:34:26.684 | INFO     | __main__:main:155 - ==================================
+2025-06-14 00:34:26.685 | INFO     | __main__:main:156 - Original shape: (2001, 9)
+2025-06-14 00:34:26.685 | INFO     | __main__:main:157 - Cleaned shape:  (1494, 9)
+2025-06-14 00:34:26.685 | INFO     | __main__:main:158 - ==================================
+2025-06-14 00:34:26.685 | INFO     | __main__:main:159 - FINISHED prepare_sales_data.py
+2025-06-14 00:34:26.685 | INFO     | __main__:main:160 - ==================================
+2025-06-14 00:35:21.671 | INFO     | __main__:main:117 - ==================================
+2025-06-14 00:35:21.672 | INFO     | __main__:main:118 - STARTING prepare_sales_data.py
+2025-06-14 00:35:21.673 | INFO     | __main__:main:119 - ==================================
+2025-06-14 00:35:21.673 | INFO     | __main__:main:121 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 00:35:21.673 | INFO     | __main__:main:122 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 00:35:21.674 | INFO     | __main__:main:123 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 00:35:21.674 | INFO     | __main__:main:124 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 00:35:21.674 | INFO     | __main__:read_raw_data:103 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 00:35:21.675 | INFO     | __main__:read_raw_data:105 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 00:35:21.681 | INFO     | __main__:read_raw_data:107 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 00:35:21.682 | INFO     | __main__:main:133 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 00:35:21.682 | INFO     | __main__:main:134 - Initial dataframe shape: (2001, 9)
+2025-06-14 00:35:21.682 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 00:35:21.684 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 00:35:21.684 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 00:35:21.685 | INFO     | __main__:handle_missing_values:63 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 00:35:21.686 | INFO     | __main__:handle_missing_values:66 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:35:21.690 | INFO     | __main__:handle_missing_values:71 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:35:21.691 | INFO     | __main__:handle_missing_values:72 - 2000 records remaining after handling missing values.
+2025-06-14 00:35:21.691 | INFO     | __main__:remove_outliers:78 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-14 00:35:21.693 | INFO     | __main__:remove_outliers:82 - Found 506 rows with invalid CampaignID
+2025-06-14 00:35:21.695 | INFO     | __main__:remove_outliers:88 - Removed 506 outlier rows
+2025-06-14 00:35:21.695 | INFO     | __main__:remove_outliers:89 - 1494 records remaining after removing outliers.
+2025-06-14 00:35:21.699 | INFO     | __main__:main:148 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 00:35:21.700 | INFO     | __main__:save_prepared_data:111 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1494, 9)
+2025-06-14 00:35:21.706 | INFO     | __main__:save_prepared_data:114 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 00:35:21.707 | INFO     | __main__:main:152 - ==================================
+2025-06-14 00:35:21.707 | INFO     | __main__:main:153 - Original shape: (2001, 9)
+2025-06-14 00:35:21.707 | INFO     | __main__:main:154 - Cleaned shape:  (1494, 9)
+2025-06-14 00:35:21.708 | INFO     | __main__:main:155 - ==================================
+2025-06-14 00:35:21.708 | INFO     | __main__:main:156 - FINISHED prepare_sales_data.py
+2025-06-14 00:35:21.708 | INFO     | __main__:main:157 - ==================================
+2025-06-14 00:37:37.316 | INFO     | __main__:main:121 - ==================================
+2025-06-14 00:37:37.317 | INFO     | __main__:main:122 - STARTING prepare_sales_data.py
+2025-06-14 00:37:37.317 | INFO     | __main__:main:123 - ==================================
+2025-06-14 00:37:37.318 | INFO     | __main__:main:125 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 00:37:37.318 | INFO     | __main__:main:126 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 00:37:37.318 | INFO     | __main__:main:127 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 00:37:37.318 | INFO     | __main__:main:128 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 00:37:37.318 | INFO     | __main__:read_raw_data:107 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 00:37:37.319 | INFO     | __main__:read_raw_data:109 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 00:37:37.325 | INFO     | __main__:read_raw_data:111 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 00:37:37.325 | INFO     | __main__:main:137 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 00:37:37.325 | INFO     | __main__:main:138 - Initial dataframe shape: (2001, 9)
+2025-06-14 00:37:37.326 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 00:37:37.327 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 00:37:37.327 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 00:37:37.328 | INFO     | __main__:handle_missing_values:63 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 00:37:37.329 | INFO     | __main__:handle_missing_values:66 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:37:37.331 | INFO     | __main__:handle_missing_values:71 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:37:37.331 | INFO     | __main__:handle_missing_values:72 - 2000 records remaining after handling missing values.
+2025-06-14 00:37:37.331 | INFO     | __main__:remove_outliers:78 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-14 00:37:37.332 | INFO     | __main__:remove_outliers:83 - Found 506 rows with invalid CampaignID
+2025-06-14 00:37:37.336 | INFO     | __main__:remove_outliers:92 - Removed 506 outlier rows
+2025-06-14 00:37:37.336 | INFO     | __main__:remove_outliers:93 - 1494 records remaining after removing outliers.
+2025-06-14 00:37:37.340 | INFO     | __main__:main:152 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 00:37:37.341 | INFO     | __main__:save_prepared_data:115 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1494, 9)
+2025-06-14 00:37:37.348 | INFO     | __main__:save_prepared_data:118 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 00:37:37.348 | INFO     | __main__:main:156 - ==================================
+2025-06-14 00:37:37.349 | INFO     | __main__:main:157 - Original shape: (2001, 9)
+2025-06-14 00:37:37.349 | INFO     | __main__:main:158 - Cleaned shape:  (1494, 9)
+2025-06-14 00:37:37.349 | INFO     | __main__:main:159 - ==================================
+2025-06-14 00:37:37.350 | INFO     | __main__:main:160 - FINISHED prepare_sales_data.py
+2025-06-14 00:37:37.350 | INFO     | __main__:main:161 - ==================================
+2025-06-14 00:49:40.469 | INFO     | __main__:main:144 - ==================================
+2025-06-14 00:49:40.470 | INFO     | __main__:main:145 - STARTING prepare_sales_data.py
+2025-06-14 00:49:40.470 | INFO     | __main__:main:146 - ==================================
+2025-06-14 00:49:40.471 | INFO     | __main__:main:148 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 00:49:40.471 | INFO     | __main__:main:149 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 00:49:40.471 | INFO     | __main__:main:150 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 00:49:40.471 | INFO     | __main__:main:151 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 00:49:40.471 | INFO     | __main__:read_raw_data:130 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 00:49:40.472 | INFO     | __main__:read_raw_data:132 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 00:49:40.494 | INFO     | __main__:read_raw_data:134 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 00:49:40.494 | INFO     | __main__:main:160 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 00:49:40.494 | INFO     | __main__:main:161 - Initial dataframe shape: (2001, 9)
+2025-06-14 00:49:40.495 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 00:49:40.496 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 00:49:40.496 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 00:49:40.496 | INFO     | __main__:handle_missing_values:63 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 00:49:40.499 | INFO     | __main__:handle_missing_values:66 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:49:40.501 | INFO     | __main__:handle_missing_values:71 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:49:40.502 | INFO     | __main__:handle_missing_values:72 - 2000 records remaining after handling missing values.
+2025-06-14 00:49:40.502 | INFO     | __main__:remove_outliers:81 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-14 00:49:40.503 | INFO     | __main__:_remove_invalid_campaign_ids:104 - Found 506 rows with invalid CampaignID
+2025-06-14 00:49:40.518 | WARNING  | __main__:_remove_invalid_sale_dates:119 - Found 1 rows with invalid SaleDate. Removing them.
+2025-06-14 00:49:40.523 | INFO     | __main__:remove_outliers:88 - Removed 507 total outlier/invalid rows
+2025-06-14 00:49:40.524 | INFO     | __main__:remove_outliers:89 - 1493 records remaining after removing outliers.
+2025-06-14 00:49:40.527 | INFO     | __main__:main:175 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 00:49:40.527 | INFO     | __main__:save_prepared_data:138 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1493, 9)
+2025-06-14 00:49:40.535 | INFO     | __main__:save_prepared_data:141 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 00:49:40.535 | INFO     | __main__:main:179 - ==================================
+2025-06-14 00:49:40.535 | INFO     | __main__:main:180 - Original shape: (2001, 9)
+2025-06-14 00:49:40.535 | INFO     | __main__:main:181 - Cleaned shape:  (1493, 9)
+2025-06-14 00:49:40.536 | INFO     | __main__:main:182 - ==================================
+2025-06-14 00:49:40.536 | INFO     | __main__:main:183 - FINISHED prepare_sales_data.py
+2025-06-14 00:49:40.536 | INFO     | __main__:main:184 - ==================================
+2025-06-14 00:58:32.234 | INFO     | __main__:main:164 - ==================================
+2025-06-14 00:58:32.235 | INFO     | __main__:main:165 - STARTING prepare_sales_data.py
+2025-06-14 00:58:32.235 | INFO     | __main__:main:166 - ==================================
+2025-06-14 00:58:32.235 | INFO     | __main__:main:168 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 00:58:32.235 | INFO     | __main__:main:169 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 00:58:32.236 | INFO     | __main__:main:170 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 00:58:32.236 | INFO     | __main__:main:171 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 00:58:32.236 | INFO     | __main__:read_raw_data:150 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 00:58:32.236 | INFO     | __main__:read_raw_data:152 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 00:58:32.243 | INFO     | __main__:read_raw_data:154 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 00:58:32.243 | INFO     | __main__:main:180 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 00:58:32.243 | INFO     | __main__:main:181 - Initial dataframe shape: (2001, 9)
+2025-06-14 00:58:32.244 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 00:58:32.245 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 00:58:32.245 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 00:58:32.245 | INFO     | __main__:handle_missing_values:63 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 00:58:32.246 | INFO     | __main__:handle_missing_values:66 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:58:32.248 | INFO     | __main__:handle_missing_values:71 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:58:32.248 | INFO     | __main__:handle_missing_values:72 - 2000 records remaining after handling missing values.
+2025-06-14 00:58:32.248 | INFO     | __main__:remove_outliers:81 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-14 00:58:32.250 | INFO     | __main__:_remove_invalid_campaign_ids:107 - Found 506 rows with invalid CampaignID
+2025-06-14 00:58:32.255 | WARNING  | __main__:_remove_invalid_sale_dates:122 - Found 1 rows with invalid SaleDate. Removing them.
+2025-06-14 00:58:32.261 | INFO     | __main__:remove_outliers:88 - Removed 507 total outlier/invalid rows
+2025-06-14 00:58:32.261 | INFO     | __main__:remove_outliers:89 - 1493 records remaining after removing outliers.
+2025-06-14 00:58:32.266 | INFO     | __main__:main:195 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 00:58:32.266 | INFO     | __main__:save_prepared_data:158 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1493, 9)
+2025-06-14 00:58:32.274 | INFO     | __main__:save_prepared_data:161 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 00:58:32.274 | INFO     | __main__:main:199 - ==================================
+2025-06-14 00:58:32.274 | INFO     | __main__:main:200 - Original shape: (2001, 9)
+2025-06-14 00:58:32.274 | INFO     | __main__:main:201 - Cleaned shape:  (1493, 9)
+2025-06-14 00:58:32.274 | INFO     | __main__:main:202 - ==================================
+2025-06-14 00:58:32.275 | INFO     | __main__:main:203 - FINISHED prepare_sales_data.py
+2025-06-14 00:58:32.275 | INFO     | __main__:main:204 - ==================================
+2025-06-14 00:58:52.015 | INFO     | __main__:main:164 - ==================================
+2025-06-14 00:58:52.016 | INFO     | __main__:main:165 - STARTING prepare_sales_data.py
+2025-06-14 00:58:52.016 | INFO     | __main__:main:166 - ==================================
+2025-06-14 00:58:52.016 | INFO     | __main__:main:168 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 00:58:52.016 | INFO     | __main__:main:169 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 00:58:52.016 | INFO     | __main__:main:170 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 00:58:52.017 | INFO     | __main__:main:171 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 00:58:52.017 | INFO     | __main__:read_raw_data:150 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 00:58:52.017 | INFO     | __main__:read_raw_data:152 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 00:58:52.024 | INFO     | __main__:read_raw_data:154 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 00:58:52.025 | INFO     | __main__:main:180 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 00:58:52.025 | INFO     | __main__:main:181 - Initial dataframe shape: (2001, 9)
+2025-06-14 00:58:52.025 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 00:58:52.026 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 00:58:52.026 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 00:58:52.027 | INFO     | __main__:handle_missing_values:63 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 00:58:52.028 | INFO     | __main__:handle_missing_values:66 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:58:52.033 | INFO     | __main__:handle_missing_values:71 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 00:58:52.033 | INFO     | __main__:handle_missing_values:72 - 2000 records remaining after handling missing values.
+2025-06-14 00:58:52.033 | INFO     | __main__:clean_columns:92 - FUNCTION START: clean columns
+2025-06-14 00:58:52.034 | INFO     | __main__:_clean_sale_amount:133 - Cleaning 'SaleAmount' column of non-monetary values
+2025-06-14 00:58:52.039 | INFO     | __main__:_clean_sale_amount:144 - 'SaleAmount' cleaned. Sample values:
+0    2048.20
+1     321.87
+2    3216.84
+3    1613.23
+4     408.38
+Name: SaleAmount, dtype: float64
+2025-06-14 00:58:52.040 | INFO     | __main__:remove_outliers:81 - FUNCTION START: remove_outliers with dataframe shape=(2000, 9)
+2025-06-14 00:58:52.041 | INFO     | __main__:_remove_invalid_campaign_ids:107 - Found 506 rows with invalid CampaignID
+2025-06-14 00:58:52.046 | WARNING  | __main__:_remove_invalid_sale_dates:122 - Found 1 rows with invalid SaleDate. Removing them.
+2025-06-14 00:58:52.050 | INFO     | __main__:remove_outliers:88 - Removed 507 total outlier/invalid rows
+2025-06-14 00:58:52.051 | INFO     | __main__:remove_outliers:89 - 1493 records remaining after removing outliers.
+2025-06-14 00:58:52.056 | INFO     | __main__:main:196 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 00:58:52.056 | INFO     | __main__:save_prepared_data:158 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1493, 9)
+2025-06-14 00:58:52.063 | INFO     | __main__:save_prepared_data:161 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 00:58:52.064 | INFO     | __main__:main:200 - ==================================
+2025-06-14 00:58:52.064 | INFO     | __main__:main:201 - Original shape: (2001, 9)
+2025-06-14 00:58:52.064 | INFO     | __main__:main:202 - Cleaned shape:  (1493, 9)
+2025-06-14 00:58:52.064 | INFO     | __main__:main:203 - ==================================
+2025-06-14 00:58:52.065 | INFO     | __main__:main:204 - FINISHED prepare_sales_data.py
+2025-06-14 00:58:52.065 | INFO     | __main__:main:205 - ==================================
+2025-06-14 01:00:27.151 | INFO     | __main__:main:206 - Starting OLAP Cubing process...
+2025-06-14 01:00:27.175 | INFO     | __main__:ingest_sales_data_from_dw:113 - Sales data successfully loaded from SQLite data warehouse.
+2025-06-14 01:04:18.261 | INFO     | __main__:main:189 - ==================================
+2025-06-14 01:04:18.261 | INFO     | __main__:main:190 - STARTING prepare_sales_data.py
+2025-06-14 01:04:18.262 | INFO     | __main__:main:191 - ==================================
+2025-06-14 01:04:18.262 | INFO     | __main__:main:193 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 01:04:18.262 | INFO     | __main__:main:194 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 01:04:18.262 | INFO     | __main__:main:195 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 01:04:18.262 | INFO     | __main__:main:196 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 01:04:18.263 | INFO     | __main__:read_raw_data:175 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 01:04:18.263 | INFO     | __main__:read_raw_data:177 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 01:04:18.269 | INFO     | __main__:read_raw_data:179 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 01:04:18.270 | INFO     | __main__:main:205 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 01:04:18.270 | INFO     | __main__:main:206 - Initial dataframe shape: (2001, 9)
+2025-06-14 01:04:18.270 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 01:04:18.271 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 01:04:18.272 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 01:04:18.272 | INFO     | __main__:handle_missing_values:63 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 01:04:18.273 | INFO     | __main__:handle_missing_values:66 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 01:04:18.277 | INFO     | __main__:handle_missing_values:71 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 01:04:18.278 | INFO     | __main__:handle_missing_values:72 - 2000 records remaining after handling missing values.
+2025-06-14 01:04:18.278 | INFO     | __main__:clean_columns:92 - FUNCTION START: clean columns
+2025-06-14 01:04:18.279 | INFO     | __main__:_clean_sale_amount:158 - Cleaning 'SaleAmount' column of non-monetary values
+2025-06-14 01:04:18.282 | INFO     | __main__:_clean_sale_amount:169 - 'SaleAmount' cleaned. Sample values:
+0    2048.20
+1     321.87
+2    3216.84
+3    1613.23
+4     408.38
+Name: SaleAmount, dtype: float64
+2025-06-14 01:04:18.282 | INFO     | __main__:_clean_sale_date:135 - Cleaning 'SaleDate' column with strict '%m/%d/%Y' format
+2025-06-14 01:04:18.285 | INFO     | __main__:_clean_sale_date:142 - Found 1 invalid SaleDate entries
+2025-06-14 01:04:18.292 | INFO     | __main__:_clean_sale_date:150 - Sample cleaned SaleDate values:
+0    2025-05-04
+1    2025-05-04
+2    2025-05-04
+3    2025-05-04
+4    2025-05-04
+Name: SaleDate, dtype: object
+2025-06-14 01:04:18.292 | INFO     | __main__:remove_outliers:81 - FUNCTION START: remove_outliers with dataframe shape=(1999, 9)
+2025-06-14 01:04:18.293 | INFO     | __main__:_remove_invalid_campaign_ids:108 - Found 506 rows with invalid CampaignID
+2025-06-14 01:04:18.296 | WARNING  | __main__:_remove_invalid_sale_dates:123 - Found 1493 rows with invalid SaleDate. Removing them.
+2025-06-14 01:04:18.298 | INFO     | __main__:remove_outliers:88 - Removed 1999 total outlier/invalid rows
+2025-06-14 01:04:18.298 | INFO     | __main__:remove_outliers:89 - 0 records remaining after removing outliers.
+2025-06-14 01:04:18.300 | INFO     | __main__:main:221 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 01:04:18.300 | INFO     | __main__:save_prepared_data:183 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(0, 9)
+2025-06-14 01:04:18.302 | INFO     | __main__:save_prepared_data:186 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 01:04:18.303 | INFO     | __main__:main:225 - ==================================
+2025-06-14 01:04:18.303 | INFO     | __main__:main:226 - Original shape: (2001, 9)
+2025-06-14 01:04:18.303 | INFO     | __main__:main:227 - Cleaned shape:  (0, 9)
+2025-06-14 01:04:18.303 | INFO     | __main__:main:228 - ==================================
+2025-06-14 01:04:18.304 | INFO     | __main__:main:229 - FINISHED prepare_sales_data.py
+2025-06-14 01:04:18.304 | INFO     | __main__:main:230 - ==================================
+2025-06-14 01:06:11.254 | INFO     | __main__:main:189 - ==================================
+2025-06-14 01:06:11.255 | INFO     | __main__:main:190 - STARTING prepare_sales_data.py
+2025-06-14 01:06:11.255 | INFO     | __main__:main:191 - ==================================
+2025-06-14 01:06:11.255 | INFO     | __main__:main:193 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 01:06:11.255 | INFO     | __main__:main:194 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 01:06:11.256 | INFO     | __main__:main:195 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 01:06:11.256 | INFO     | __main__:main:196 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 01:06:11.256 | INFO     | __main__:read_raw_data:175 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 01:06:11.257 | INFO     | __main__:read_raw_data:177 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 01:06:11.263 | INFO     | __main__:read_raw_data:179 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 01:06:11.264 | INFO     | __main__:main:205 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 01:06:11.264 | INFO     | __main__:main:206 - Initial dataframe shape: (2001, 9)
+2025-06-14 01:06:11.264 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 01:06:11.265 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 01:06:11.266 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 01:06:11.266 | INFO     | __main__:handle_missing_values:63 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 01:06:11.268 | INFO     | __main__:handle_missing_values:66 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 01:06:11.270 | INFO     | __main__:handle_missing_values:71 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 01:06:11.270 | INFO     | __main__:handle_missing_values:72 - 2000 records remaining after handling missing values.
+2025-06-14 01:06:11.270 | INFO     | __main__:clean_columns:92 - FUNCTION START: clean columns
+2025-06-14 01:06:11.271 | INFO     | __main__:_clean_sale_amount:158 - Cleaning 'SaleAmount' column of non-monetary values
+2025-06-14 01:06:11.276 | INFO     | __main__:_clean_sale_amount:169 - 'SaleAmount' cleaned. Sample values:
+0    2048.20
+1     321.87
+2    3216.84
+3    1613.23
+4     408.38
+Name: SaleAmount, dtype: float64
+2025-06-14 01:06:11.277 | INFO     | __main__:_clean_sale_date:135 - Cleaning 'SaleDate' column with strict '%m/%d/%Y' format
+2025-06-14 01:06:11.280 | INFO     | __main__:_clean_sale_date:142 - Found 1 invalid SaleDate entries
+2025-06-14 01:06:11.284 | INFO     | __main__:_clean_sale_date:150 - Sample cleaned SaleDate values:
+0    2025-05-04
+1    2025-05-04
+2    2025-05-04
+3    2025-05-04
+4    2025-05-04
+Name: SaleDate, dtype: object
+2025-06-14 01:06:11.284 | INFO     | __main__:remove_outliers:81 - FUNCTION START: remove_outliers with dataframe shape=(1999, 9)
+2025-06-14 01:06:11.285 | INFO     | __main__:_remove_invalid_campaign_ids:108 - Found 506 rows with invalid CampaignID
+2025-06-14 01:06:11.287 | INFO     | __main__:remove_outliers:88 - Removed 506 total outlier/invalid rows
+2025-06-14 01:06:11.288 | INFO     | __main__:remove_outliers:89 - 1493 records remaining after removing outliers.
+2025-06-14 01:06:11.292 | INFO     | __main__:main:221 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 01:06:11.293 | INFO     | __main__:save_prepared_data:183 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1493, 9)
+2025-06-14 01:06:11.299 | INFO     | __main__:save_prepared_data:186 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 01:06:11.300 | INFO     | __main__:main:225 - ==================================
+2025-06-14 01:06:11.300 | INFO     | __main__:main:226 - Original shape: (2001, 9)
+2025-06-14 01:06:11.300 | INFO     | __main__:main:227 - Cleaned shape:  (1493, 9)
+2025-06-14 01:06:11.301 | INFO     | __main__:main:228 - ==================================
+2025-06-14 01:06:11.301 | INFO     | __main__:main:229 - FINISHED prepare_sales_data.py
+2025-06-14 01:06:11.301 | INFO     | __main__:main:230 - ==================================
+2025-06-14 01:12:10.312 | INFO     | __main__:main:172 - ==================================
+2025-06-14 01:12:10.313 | INFO     | __main__:main:173 - STARTING prepare_sales_data.py
+2025-06-14 01:12:10.313 | INFO     | __main__:main:174 - ==================================
+2025-06-14 01:12:10.313 | INFO     | __main__:main:176 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 01:12:10.313 | INFO     | __main__:main:177 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 01:12:10.314 | INFO     | __main__:main:178 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 01:12:10.314 | INFO     | __main__:main:179 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 01:12:10.314 | INFO     | __main__:read_raw_data:158 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 01:12:10.314 | INFO     | __main__:read_raw_data:160 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 01:12:10.320 | INFO     | __main__:read_raw_data:162 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 01:12:10.321 | INFO     | __main__:main:188 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 01:12:10.321 | INFO     | __main__:main:189 - Initial dataframe shape: (2001, 9)
+2025-06-14 01:12:10.321 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 01:12:10.322 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 01:12:10.323 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 01:12:10.323 | INFO     | __main__:handle_missing_values:63 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 01:12:10.325 | INFO     | __main__:handle_missing_values:66 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 01:12:10.328 | INFO     | __main__:handle_missing_values:71 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 01:12:10.330 | INFO     | __main__:handle_missing_values:72 - 2000 records remaining after handling missing values.
+2025-06-14 01:12:10.330 | INFO     | __main__:clean_columns:91 - FUNCTION START: clean columns
+2025-06-14 01:12:10.330 | INFO     | __main__:_clean_sale_amount:141 - Cleaning 'SaleAmount' column of non-monetary values
+2025-06-14 01:12:10.334 | INFO     | __main__:_clean_sale_amount:152 - 'SaleAmount' cleaned. Sample values:
+0    2048.20
+1     321.87
+2    3216.84
+3    1613.23
+4     408.38
+Name: SaleAmount, dtype: float64
+2025-06-14 01:12:10.335 | INFO     | __main__:_clean_sale_date:118 - Cleaning 'SaleDate' column with strict '%m/%d/%Y' format
+2025-06-14 01:12:10.338 | INFO     | __main__:_clean_sale_date:125 - Found 1 invalid SaleDate entries
+2025-06-14 01:12:10.344 | INFO     | __main__:_clean_sale_date:133 - Sample cleaned SaleDate values:
+0    2025-05-04
+1    2025-05-04
+2    2025-05-04
+3    2025-05-04
+4    2025-05-04
+Name: SaleDate, dtype: object
+2025-06-14 01:12:10.344 | INFO     | __main__:remove_outliers:81 - FUNCTION START: remove_outliers with dataframe shape=(1999, 9)
+2025-06-14 01:12:10.345 | INFO     | __main__:_remove_invalid_campaign_ids:107 - Found 506 rows with invalid CampaignID
+2025-06-14 01:12:10.347 | INFO     | __main__:remove_outliers:87 - Removed 506 total outlier/invalid rows
+2025-06-14 01:12:10.347 | INFO     | __main__:remove_outliers:88 - 1493 records remaining after removing outliers.
+2025-06-14 01:12:10.350 | INFO     | __main__:main:204 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 01:12:10.351 | INFO     | __main__:save_prepared_data:166 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1493, 9)
+2025-06-14 01:12:10.359 | INFO     | __main__:save_prepared_data:169 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 01:12:10.360 | INFO     | __main__:main:208 - ==================================
+2025-06-14 01:12:10.360 | INFO     | __main__:main:209 - Original shape: (2001, 9)
+2025-06-14 01:12:10.360 | INFO     | __main__:main:210 - Cleaned shape:  (1493, 9)
+2025-06-14 01:12:10.360 | INFO     | __main__:main:211 - ==================================
+2025-06-14 01:12:10.360 | INFO     | __main__:main:212 - FINISHED prepare_sales_data.py
+2025-06-14 01:12:10.361 | INFO     | __main__:main:213 - ==================================
+2025-06-14 01:12:45.766 | INFO     | __main__:main:172 - ==================================
+2025-06-14 01:12:45.766 | INFO     | __main__:main:173 - STARTING prepare_sales_data.py
+2025-06-14 01:12:45.766 | INFO     | __main__:main:174 - ==================================
+2025-06-14 01:12:45.767 | INFO     | __main__:main:176 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 01:12:45.767 | INFO     | __main__:main:177 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 01:12:45.767 | INFO     | __main__:main:178 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 01:12:45.768 | INFO     | __main__:main:179 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 01:12:45.768 | INFO     | __main__:read_raw_data:158 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 01:12:45.768 | INFO     | __main__:read_raw_data:160 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 01:12:45.776 | INFO     | __main__:read_raw_data:162 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 01:12:45.776 | INFO     | __main__:main:188 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 01:12:45.776 | INFO     | __main__:main:189 - Initial dataframe shape: (2001, 9)
+2025-06-14 01:12:45.777 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 01:12:45.778 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 01:12:45.779 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 01:12:45.779 | INFO     | __main__:handle_missing_values:63 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 01:12:45.781 | INFO     | __main__:handle_missing_values:66 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 01:12:45.787 | INFO     | __main__:handle_missing_values:71 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 01:12:45.787 | INFO     | __main__:handle_missing_values:72 - 2000 records remaining after handling missing values.
+2025-06-14 01:12:45.788 | INFO     | __main__:clean_columns:91 - FUNCTION START: clean columns
+2025-06-14 01:12:45.789 | INFO     | __main__:_clean_sale_amount:141 - Cleaning 'SaleAmount' column of non-monetary values
+2025-06-14 01:12:45.793 | INFO     | __main__:_clean_sale_amount:152 - 'SaleAmount' cleaned. Sample values:
+0    2048.20
+1     321.87
+2    3216.84
+3    1613.23
+4     408.38
+Name: SaleAmount, dtype: float64
+2025-06-14 01:12:45.794 | INFO     | __main__:_clean_sale_date:118 - Cleaning 'SaleDate' column with strict '%m/%d/%Y' format
+2025-06-14 01:12:45.798 | INFO     | __main__:_clean_sale_date:125 - Found 1 invalid SaleDate entries
+2025-06-14 01:12:45.805 | INFO     | __main__:_clean_sale_date:133 - Sample cleaned SaleDate values:
+0   2025-05-04
+1   2025-05-04
+2   2025-05-04
+3   2025-05-04
+4   2025-05-04
+Name: SaleDate, dtype: datetime64[ns]
+2025-06-14 01:12:45.806 | INFO     | __main__:remove_outliers:81 - FUNCTION START: remove_outliers with dataframe shape=(1999, 9)
+2025-06-14 01:12:45.807 | INFO     | __main__:_remove_invalid_campaign_ids:107 - Found 506 rows with invalid CampaignID
+2025-06-14 01:12:45.810 | INFO     | __main__:remove_outliers:87 - Removed 506 total outlier/invalid rows
+2025-06-14 01:12:45.810 | INFO     | __main__:remove_outliers:88 - 1493 records remaining after removing outliers.
+2025-06-14 01:12:45.813 | INFO     | __main__:main:204 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 01:12:45.814 | INFO     | __main__:save_prepared_data:166 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1493, 9)
+2025-06-14 01:12:45.828 | INFO     | __main__:save_prepared_data:169 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 01:12:45.829 | INFO     | __main__:main:208 - ==================================
+2025-06-14 01:12:45.829 | INFO     | __main__:main:209 - Original shape: (2001, 9)
+2025-06-14 01:12:45.829 | INFO     | __main__:main:210 - Cleaned shape:  (1493, 9)
+2025-06-14 01:12:45.829 | INFO     | __main__:main:211 - ==================================
+2025-06-14 01:12:45.830 | INFO     | __main__:main:212 - FINISHED prepare_sales_data.py
+2025-06-14 01:12:45.830 | INFO     | __main__:main:213 - ==================================
+2025-06-14 01:13:31.726 | INFO     | __main__:main:172 - ==================================
+2025-06-14 01:13:31.726 | INFO     | __main__:main:173 - STARTING prepare_sales_data.py
+2025-06-14 01:13:31.727 | INFO     | __main__:main:174 - ==================================
+2025-06-14 01:13:31.727 | INFO     | __main__:main:176 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 01:13:31.727 | INFO     | __main__:main:177 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 01:13:31.728 | INFO     | __main__:main:178 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 01:13:31.728 | INFO     | __main__:main:179 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 01:13:31.728 | INFO     | __main__:read_raw_data:158 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 01:13:31.728 | INFO     | __main__:read_raw_data:160 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 01:13:31.735 | INFO     | __main__:read_raw_data:162 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 01:13:31.735 | INFO     | __main__:main:188 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 01:13:31.735 | INFO     | __main__:main:189 - Initial dataframe shape: (2001, 9)
+2025-06-14 01:13:31.735 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 01:13:31.737 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 01:13:31.737 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 01:13:31.737 | INFO     | __main__:handle_missing_values:63 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 01:13:31.738 | INFO     | __main__:handle_missing_values:66 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 01:13:31.740 | INFO     | __main__:handle_missing_values:71 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 01:13:31.741 | INFO     | __main__:handle_missing_values:72 - 2000 records remaining after handling missing values.
+2025-06-14 01:13:31.741 | INFO     | __main__:clean_columns:91 - FUNCTION START: clean columns
+2025-06-14 01:13:31.743 | INFO     | __main__:_clean_sale_amount:141 - Cleaning 'SaleAmount' column of non-monetary values
+2025-06-14 01:13:31.747 | INFO     | __main__:_clean_sale_amount:152 - 'SaleAmount' cleaned. Sample values:
+0    2048.20
+1     321.87
+2    3216.84
+3    1613.23
+4     408.38
+Name: SaleAmount, dtype: float64
+2025-06-14 01:13:31.748 | INFO     | __main__:_clean_sale_date:118 - Cleaning 'SaleDate' column with strict '%m/%d/%Y' format
+2025-06-14 01:13:31.752 | INFO     | __main__:_clean_sale_date:125 - Found 1 invalid SaleDate entries
+2025-06-14 01:13:31.768 | INFO     | __main__:_clean_sale_date:133 - Sample cleaned SaleDate values:
+0    05/04/2025
+1    05/04/2025
+2    05/04/2025
+3    05/04/2025
+4    05/04/2025
+Name: SaleDate, dtype: object
+2025-06-14 01:13:31.769 | INFO     | __main__:remove_outliers:81 - FUNCTION START: remove_outliers with dataframe shape=(1999, 9)
+2025-06-14 01:13:31.771 | INFO     | __main__:_remove_invalid_campaign_ids:107 - Found 506 rows with invalid CampaignID
+2025-06-14 01:13:31.773 | INFO     | __main__:remove_outliers:87 - Removed 506 total outlier/invalid rows
+2025-06-14 01:13:31.774 | INFO     | __main__:remove_outliers:88 - 1493 records remaining after removing outliers.
+2025-06-14 01:13:31.776 | INFO     | __main__:main:204 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 01:13:31.777 | INFO     | __main__:save_prepared_data:166 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1493, 9)
+2025-06-14 01:13:31.784 | INFO     | __main__:save_prepared_data:169 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 01:13:31.784 | INFO     | __main__:main:208 - ==================================
+2025-06-14 01:13:31.785 | INFO     | __main__:main:209 - Original shape: (2001, 9)
+2025-06-14 01:13:31.785 | INFO     | __main__:main:210 - Cleaned shape:  (1493, 9)
+2025-06-14 01:13:31.785 | INFO     | __main__:main:211 - ==================================
+2025-06-14 01:13:31.786 | INFO     | __main__:main:212 - FINISHED prepare_sales_data.py
+2025-06-14 01:13:31.786 | INFO     | __main__:main:213 - ==================================
+2025-06-14 01:13:39.575 | INFO     | __main__:main:206 - Starting OLAP Cubing process...
+2025-06-14 01:13:40.031 | INFO     | __main__:ingest_sales_data_from_dw:113 - Sales data successfully loaded from SQLite data warehouse.
+2025-06-14 01:14:35.147 | INFO     | __main__:main:206 - Starting OLAP Cubing process...
+2025-06-14 01:14:35.156 | INFO     | __main__:ingest_sales_data_from_dw:113 - Sales data successfully loaded from SQLite data warehouse.
+2025-06-14 01:19:25.485 | INFO     | __main__:main:206 - Starting OLAP Cubing process...
+2025-06-14 01:19:25.491 | INFO     | __main__:ingest_sales_data_from_dw:113 - Sales data successfully loaded from SQLite data warehouse.
+2025-06-14 01:19:25.499 | ERROR    | __main__:create_olap_cube:164 - Error creating OLAP cube: "Column(s) ['sale_amount_usd'] do not exist"
+2025-06-14 01:21:09.529 | INFO     | __main__:main:206 - Starting OLAP Cubing process...
+2025-06-14 01:21:09.536 | INFO     | __main__:ingest_sales_data_from_dw:113 - Sales data successfully loaded from SQLite data warehouse.
+2025-06-14 01:21:09.586 | INFO     | __main__:create_olap_cube:161 - OLAP cube created with dimensions: ['DayOfWeek', 'product_id', 'customer_id']
+2025-06-14 01:21:09.594 | INFO     | __main__:write_cube_to_csv:199 - OLAP cube saved to data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 01:21:09.595 | INFO     | __main__:main:230 - OLAP Cubing process completed successfully.
+2025-06-14 01:21:09.595 | INFO     | __main__:main:231 - Please see outputs in data\olap_cubing_outputs
+2025-06-14 01:36:56.650 | INFO     | __main__:main:158 - ==================================
+2025-06-14 01:36:56.650 | INFO     | __main__:main:159 - STARTING prepare_sales_data.py
+2025-06-14 01:36:56.650 | INFO     | __main__:main:160 - ==================================
+2025-06-14 01:36:56.651 | INFO     | __main__:main:162 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 01:36:56.651 | INFO     | __main__:main:163 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 01:36:56.651 | INFO     | __main__:main:164 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 01:36:56.651 | INFO     | __main__:main:165 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 01:36:56.651 | INFO     | __main__:read_raw_data:144 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 01:36:56.651 | INFO     | __main__:read_raw_data:146 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 01:36:56.658 | INFO     | __main__:read_raw_data:148 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 01:36:56.658 | INFO     | __main__:main:174 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 01:36:56.659 | INFO     | __main__:main:175 - Initial dataframe shape: (2001, 9)
+2025-06-14 01:36:56.659 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 01:36:56.660 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 01:36:56.660 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 01:36:56.661 | INFO     | __main__:handle_missing_values:63 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 01:36:56.662 | INFO     | __main__:handle_missing_values:66 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 01:36:56.664 | INFO     | __main__:handle_missing_values:71 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 01:36:56.664 | INFO     | __main__:handle_missing_values:72 - 2000 records remaining after handling missing values.
+2025-06-14 01:36:56.665 | INFO     | __main__:clean_columns:91 - FUNCTION START: clean columns
+2025-06-14 01:36:56.665 | INFO     | __main__:_clean_sale_amount:127 - Cleaning 'SaleAmount' column of non-monetary values
+2025-06-14 01:36:56.672 | INFO     | __main__:_clean_sale_amount:138 - 'SaleAmount' cleaned. Sample values:
+0    2048.20
+1     321.87
+2    3216.84
+3    1613.23
+4     408.38
+Name: SaleAmount, dtype: float64
+2025-06-14 01:36:56.689 | INFO     | __main__:_clean_sale_date:119 - Found 1 invalid SaleDate entries
+2025-06-14 01:36:56.690 | INFO     | __main__:_clean_sale_date:121 - Sample cleaned SaleDate values:
+0    05/04/2025
+1    05/04/2025
+2    05/04/2025
+3    05/04/2025
+4    05/04/2025
+Name: SaleDate, dtype: object
+2025-06-14 01:36:56.690 | INFO     | __main__:remove_outliers:81 - FUNCTION START: remove_outliers with dataframe shape=(1999, 9)
+2025-06-14 01:36:56.691 | INFO     | __main__:_remove_invalid_campaign_ids:107 - Found 506 rows with invalid CampaignID
+2025-06-14 01:36:56.692 | INFO     | __main__:remove_outliers:87 - Removed 506 total outlier/invalid rows
+2025-06-14 01:36:56.692 | INFO     | __main__:remove_outliers:88 - 1493 records remaining after removing outliers.
+2025-06-14 01:36:56.695 | INFO     | __main__:main:190 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 01:36:56.695 | INFO     | __main__:save_prepared_data:152 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1493, 9)
+2025-06-14 01:36:56.704 | INFO     | __main__:save_prepared_data:155 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 01:36:56.705 | INFO     | __main__:main:194 - ==================================
+2025-06-14 01:36:56.705 | INFO     | __main__:main:195 - Original shape: (2001, 9)
+2025-06-14 01:36:56.705 | INFO     | __main__:main:196 - Cleaned shape:  (1493, 9)
+2025-06-14 01:36:56.705 | INFO     | __main__:main:197 - ==================================
+2025-06-14 01:36:56.706 | INFO     | __main__:main:198 - FINISHED prepare_sales_data.py
+2025-06-14 01:36:56.706 | INFO     | __main__:main:199 - ==================================
+2025-06-14 01:38:38.700 | INFO     | __main__:main:157 - ==================================
+2025-06-14 01:38:38.701 | INFO     | __main__:main:158 - STARTING prepare_sales_data.py
+2025-06-14 01:38:38.701 | INFO     | __main__:main:159 - ==================================
+2025-06-14 01:38:38.701 | INFO     | __main__:main:161 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 01:38:38.701 | INFO     | __main__:main:162 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 01:38:38.702 | INFO     | __main__:main:163 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 01:38:38.702 | INFO     | __main__:main:164 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 01:38:38.702 | INFO     | __main__:read_raw_data:143 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 01:38:38.702 | INFO     | __main__:read_raw_data:145 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 01:38:38.710 | INFO     | __main__:read_raw_data:147 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 01:38:38.710 | INFO     | __main__:main:173 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 01:38:38.710 | INFO     | __main__:main:174 - Initial dataframe shape: (2001, 9)
+2025-06-14 01:38:38.710 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 01:38:38.712 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 01:38:38.712 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 01:38:38.712 | INFO     | __main__:handle_missing_values:63 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 01:38:38.714 | INFO     | __main__:handle_missing_values:66 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 01:38:38.715 | INFO     | __main__:handle_missing_values:71 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 01:38:38.716 | INFO     | __main__:handle_missing_values:72 - 2000 records remaining after handling missing values.
+2025-06-14 01:38:38.716 | INFO     | __main__:clean_columns:91 - FUNCTION START: clean columns
+2025-06-14 01:38:38.717 | INFO     | __main__:_clean_sale_amount:126 - Cleaning 'SaleAmount' column of non-monetary values
+2025-06-14 01:38:38.720 | INFO     | __main__:_clean_sale_amount:137 - 'SaleAmount' cleaned. Sample values:
+0    2048.20
+1     321.87
+2    3216.84
+3    1613.23
+4     408.38
+Name: SaleAmount, dtype: float64
+2025-06-14 01:38:38.721 | INFO     | __main__:_clean_sale_date:116 - Cleaning 'SaleDate' column values
+2025-06-14 01:38:38.742 | INFO     | __main__:_clean_sale_date:120 - Found 1 invalid SaleDate entries
+2025-06-14 01:38:38.743 | INFO     | __main__:remove_outliers:81 - FUNCTION START: remove_outliers with dataframe shape=(1999, 9)
+2025-06-14 01:38:38.746 | INFO     | __main__:_remove_invalid_campaign_ids:107 - Found 506 rows with invalid CampaignID
+2025-06-14 01:38:38.748 | INFO     | __main__:remove_outliers:87 - Removed 506 total outlier/invalid rows
+2025-06-14 01:38:38.748 | INFO     | __main__:remove_outliers:88 - 1493 records remaining after removing outliers.
+2025-06-14 01:38:38.752 | INFO     | __main__:main:189 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 01:38:38.753 | INFO     | __main__:save_prepared_data:151 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1493, 9)
+2025-06-14 01:38:38.763 | INFO     | __main__:save_prepared_data:154 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 01:38:38.764 | INFO     | __main__:main:193 - ==================================
+2025-06-14 01:38:38.764 | INFO     | __main__:main:194 - Original shape: (2001, 9)
+2025-06-14 01:38:38.765 | INFO     | __main__:main:195 - Cleaned shape:  (1493, 9)
+2025-06-14 01:38:38.766 | INFO     | __main__:main:196 - ==================================
+2025-06-14 01:38:38.767 | INFO     | __main__:main:197 - FINISHED prepare_sales_data.py
+2025-06-14 01:38:38.767 | INFO     | __main__:main:198 - ==================================
+2025-06-14 01:39:05.358 | INFO     | __main__:main:154 - ==================================
+2025-06-14 01:39:05.359 | INFO     | __main__:main:155 - STARTING prepare_sales_data.py
+2025-06-14 01:39:05.359 | INFO     | __main__:main:156 - ==================================
+2025-06-14 01:39:05.359 | INFO     | __main__:main:158 - Root         : C:\Repos\smart-store-brittany
+2025-06-14 01:39:05.360 | INFO     | __main__:main:159 - data/raw     : C:\Repos\smart-store-brittany\data\raw
+2025-06-14 01:39:05.360 | INFO     | __main__:main:160 - data/prepared: C:\Repos\smart-store-brittany\data\prepared
+2025-06-14 01:39:05.360 | INFO     | __main__:main:161 - scripts      : C:\Repos\smart-store-brittany\scripts
+2025-06-14 01:39:05.360 | INFO     | __main__:read_raw_data:140 - FUNCTION START: read_raw_data with file_name=sales_data.csv
+2025-06-14 01:39:05.360 | INFO     | __main__:read_raw_data:142 - Reading data from C:\Repos\smart-store-brittany\data\raw\sales_data.csv
+2025-06-14 01:39:05.368 | INFO     | __main__:read_raw_data:144 - Loaded dataframe with 2001 rows and 9 columns
+2025-06-14 01:39:05.368 | INFO     | __main__:main:170 - Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount, BonusPoints, PaymentType
+2025-06-14 01:39:05.368 | INFO     | __main__:main:171 - Initial dataframe shape: (2001, 9)
+2025-06-14 01:39:05.369 | INFO     | __main__:remove_duplicates:53 - FUNCTION START: remove_duplicates with dataframe shape=(2001, 9)
+2025-06-14 01:39:05.370 | INFO     | __main__:remove_duplicates:57 - Removed 1 duplicate rows
+2025-06-14 01:39:05.370 | INFO     | __main__:remove_duplicates:58 - 2000 records remaining after removing duplicates.
+2025-06-14 01:39:05.371 | INFO     | __main__:handle_missing_values:63 - FUNCTION START: handle_missing_values with dataframe shape=(2000, 9)
+2025-06-14 01:39:05.372 | INFO     | __main__:handle_missing_values:66 - Missing values by column before handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 01:39:05.374 | INFO     | __main__:handle_missing_values:71 - Missing values by column after handling:
+TransactionID    0
+SaleDate         0
+CustomerID       0
+ProductID        0
+StoreID          0
+CampaignID       1
+SaleAmount       0
+BonusPoints      0
+PaymentType      0
+dtype: int64
+2025-06-14 01:39:05.375 | INFO     | __main__:handle_missing_values:72 - 2000 records remaining after handling missing values.
+2025-06-14 01:39:05.375 | INFO     | __main__:clean_columns:91 - FUNCTION START: clean columns
+2025-06-14 01:39:05.375 | INFO     | __main__:_clean_sale_amount:126 - Cleaning 'SaleAmount' column of non-monetary values
+2025-06-14 01:39:05.380 | INFO     | __main__:_clean_sale_date:116 - Cleaning 'SaleDate' column values
+2025-06-14 01:39:05.399 | INFO     | __main__:_clean_sale_date:120 - Found 1 invalid SaleDate entries
+2025-06-14 01:39:05.399 | INFO     | __main__:remove_outliers:81 - FUNCTION START: remove_outliers with dataframe shape=(1999, 9)
+2025-06-14 01:39:05.400 | INFO     | __main__:_remove_invalid_campaign_ids:107 - Found 506 rows with invalid CampaignID
+2025-06-14 01:39:05.402 | INFO     | __main__:remove_outliers:87 - Removed 506 total outlier/invalid rows
+2025-06-14 01:39:05.403 | INFO     | __main__:remove_outliers:88 - 1493 records remaining after removing outliers.
+2025-06-14 01:39:05.410 | INFO     | __main__:main:186 - Cleaned column names: TransactionID -> sale_id, SaleDate -> sale_date, CustomerID -> customer_id, ProductID -> product_id, StoreID -> store_id, CampaignID -> campaign_id, SaleAmount -> sale_amount, BonusPoints -> bonus_points, PaymentType -> payment_type
+2025-06-14 01:39:05.410 | INFO     | __main__:save_prepared_data:148 - FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(1493, 9)
+2025-06-14 01:39:05.417 | INFO     | __main__:save_prepared_data:151 - Data saved to C:\Repos\smart-store-brittany\data\prepared\sales_data_prepared.csv
+2025-06-14 01:39:05.418 | INFO     | __main__:main:190 - ==================================
+2025-06-14 01:39:05.418 | INFO     | __main__:main:191 - Original shape: (2001, 9)
+2025-06-14 01:39:05.418 | INFO     | __main__:main:192 - Cleaned shape:  (1493, 9)
+2025-06-14 01:39:05.418 | INFO     | __main__:main:193 - ==================================
+2025-06-14 01:39:05.418 | INFO     | __main__:main:194 - FINISHED prepare_sales_data.py
+2025-06-14 01:39:05.419 | INFO     | __main__:main:195 - ==================================

@@ -32,160 +32,121 @@ from utils.logger import logger
 # Optional: Use a data_scrubber module for common data cleaning tasks
 from utils.data_scrubber import DataScrubber  
 
+# Paths
+SCRIPTS_DATA_PREP_DIR = pathlib.Path(__file__).resolve().parent
+SCRIPTS_DIR = SCRIPTS_DATA_PREP_DIR.parent 
+PROJECT_ROOT = SCRIPTS_DIR.parent 
+DATA_DIR = PROJECT_ROOT / "data" 
+RAW_DATA_DIR = DATA_DIR / "raw"  
+PREPARED_DATA_DIR = DATA_DIR / "prepared"
 
-# Constants
-SCRIPTS_DATA_PREP_DIR: pathlib.Path = pathlib.Path(__file__).resolve().parent  # Directory of the current script
-SCRIPTS_DIR: pathlib.Path = SCRIPTS_DATA_PREP_DIR.parent 
-PROJECT_ROOT: pathlib.Path = SCRIPTS_DIR.parent 
-DATA_DIR: pathlib.Path = PROJECT_ROOT/ "data" 
-RAW_DATA_DIR: pathlib.Path = DATA_DIR / "raw"  
-PREPARED_DATA_DIR: pathlib.Path = DATA_DIR / "prepared"  # place to store prepared data
-
-
-# Ensure the directories exist or create them
 DATA_DIR.mkdir(exist_ok=True)
 RAW_DATA_DIR.mkdir(exist_ok=True)
 PREPARED_DATA_DIR.mkdir(exist_ok=True)
 
-#####################################
-# Define Functions - Reusable blocks of code / instructions
-#####################################
 
-# TODO: Complete this by implementing functions based on the logic in the other scripts
+class PrepareSalesData:
+    def __init__(self, df: pd.DataFrame):
+        self.scrubber = DataScrubber(df)
+
+    def remove_duplicates(self):
+        logger.info(f"FUNCTION START: remove_duplicates with dataframe shape={self.scrubber.df.shape}")
+        initial_count = len(self.scrubber.df)
+        self.scrubber.remove_duplicates(subset=["TransactionID"])
+        removed_count = initial_count - len(self.scrubber.df)
+        logger.info(f"Removed {removed_count} duplicate rows")
+        logger.info(f"{len(self.scrubber.df)} records remaining after removing duplicates.")
+
+    def handle_missing_values(self):
+        df = self.scrubber.df.copy()
+
+        logger.info(f"FUNCTION START: handle_missing_values with dataframe shape={df.shape}")
+
+        missing_by_col = df.isna().sum()
+        logger.info(f"Missing values by column before handling:\n{missing_by_col}")
+
+        df = self.scrubber.handle_missing_data(fill_value={'BonusPoints': 0})
+
+        missing_after = df.isna().sum()
+        logger.info(f"Missing values by column after handling:\n{missing_after}")
+        logger.info(f"{len(df)} records remaining after handling missing values.")
+
+        self.scrubber.df = df  # update scrubber's df after filling
+
+    def remove_outliers(self):
+        """
+        Remove outliers and invalid data rows.
+        Delegates column-specific cleanup to private methods.
+        """
+        logger.info(f"FUNCTION START: remove_outliers with dataframe shape={self.scrubber.df.shape}")
+        initial_count = len(self.scrubber.df)
+
+        self._remove_invalid_campaign_ids()
+
+        removed = initial_count - len(self.scrubber.df)
+        logger.info(f"Removed {removed} total outlier/invalid rows")
+        logger.info(f"{len(self.scrubber.df)} records remaining after removing outliers.")
+
+    def clean_columns(self):
+        logger.info(f"FUNCTION START: clean columns")
+        self._clean_sale_amount()
+        self._clean_sale_date()
+
+    def finalize_cleaning(self):
+        self.scrubber.rename_columns({"TransactionID": "sale_id"})
+        self.scrubber.normalize_column_names()
+        self.scrubber.format_string_columns()
+
+    def get_dataframe(self):
+        return self.scrubber.get_dataframe()
+    
+    def _remove_invalid_campaign_ids(self):
+        df = self.scrubber.df
+
+        invalid = df[(df["CampaignID"].isna()) | (df["CampaignID"] <= 0)].shape[0]
+        logger.info(f"Found {invalid} rows with invalid CampaignID")
+
+        df = df[df["CampaignID"].notna() & (df["CampaignID"] > 0)].copy()
+        df["CampaignID"] = df["CampaignID"].astype("Int64")
+
+        self.scrubber.df = df
+
+    def _clean_sale_date(self):
+        logger.info("Cleaning 'SaleDate' column values")
+        invalid_dates_count = self.scrubber.clean_date('SaleDate', '%m/%d/%Y')
+        logger.info(f"Found {invalid_dates_count} invalid SaleDate entries")
+    
+    def _clean_sale_amount(self):
+        df = self.scrubber.df.copy()
+
+        logger.info("Cleaning 'SaleAmount' column of non-monetary values")
+
+        # Strip out unwanted characters (like $ or letters), keep digits and dot
+        df["SaleAmount"] = (
+            df["SaleAmount"]
+                .astype(str)
+                .str.replace(r"[^\d.]", "", regex=True)
+                .replace("", "0")  # replace empty strings after cleaning with "0"
+                .astype(float)
+        )
+        self.scrubber.df = df
+
 
 def read_raw_data(file_name: str) -> pd.DataFrame:
-    """
-    Read raw data from CSV.
-
-    Args:
-        file_name (str): Name of the CSV file to read.
-    
-    Returns:
-        pd.DataFrame: Loaded DataFrame.
-    """
     logger.info(f"FUNCTION START: read_raw_data with file_name={file_name}")
     file_path = RAW_DATA_DIR.joinpath(file_name)
     logger.info(f"Reading data from {file_path}")
     df = pd.read_csv(file_path)
     logger.info(f"Loaded dataframe with {len(df)} rows and {len(df.columns)} columns")
-    
-    # TODO: OPTIONAL Add data profiling here to understand the dataset
-    # Suggestion: Log the datatypes of each column and the number of unique values
-    # Example:
-    # logger.info(f"Column datatypes: \n{df.dtypes}")
-    # logger.info(f"Number of unique values: \n{df.nunique()}")
-    
-    return df
-
-def remove_duplicates(df: pd.DataFrame, scrubber: DataScrubber) -> pd.DataFrame:
-    """
-    Remove duplicate rows from the DataFrame.
-
-    Args:
-        df (pd.DataFrame): Input DataFrame.
-    
-    Returns:
-        pd.DataFrame: DataFrame with duplicates removed.
-    """
-    logger.info(f"FUNCTION START: remove_duplicates with dataframe shape={df.shape}")
-    initial_count = len(df)
-    
-    # Consider which columns should be used to identify duplicates
-    df = scrubber.remove_duplicates(subset=["transaction_id"])
-    
-    removed_count = initial_count - len(df)
-    logger.info(f"Removed {removed_count} duplicate rows")
-    logger.info(f"{len(df)} records remaining after removing duplicates.")
-    return df
-
-def handle_missing_values(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Handle missing values by filling or dropping.
-    This logic is specific to the actual data and business rules.
-
-    Args:
-        df (pd.DataFrame): Input DataFrame.
-    
-    Returns:
-        pd.DataFrame: DataFrame with missing values handled.
-    """
-    logger.info(f"FUNCTION START: handle_missing_values with dataframe shape={df.shape}")
-    
-    # Log missing values by column before handling
-    # NA means missing or "not a number" - ask your AI for details
-    missing_by_col = df.isna().sum()
-    logger.info(f"Missing values by column before handling:\n{missing_by_col}")
-    
-    # missing value handling specific to our data.
-    df.fillna({'BonusPoints':0}, inplace=True)
-    
-    # Log missing values by column after handling
-    missing_after = df.isna().sum()
-    logger.info(f"Missing values by column after handling:\n{missing_after}")
-    logger.info(f"{len(df)} records remaining after handling missing values.")
     return df
 
 def save_prepared_data(df: pd.DataFrame, file_name: str) -> None:
-    """
-    Save cleaned data to CSV.
-
-    Args:
-        df (pd.DataFrame): Cleaned DataFrame.
-        file_name (str): Name of the output file.
-    """
     logger.info(f"FUNCTION START: save_prepared_data with file_name={file_name}, dataframe shape={df.shape}")
     file_path = PREPARED_DATA_DIR.joinpath(file_name)
     df.to_csv(file_path, index=False)
     logger.info(f"Data saved to {file_path}")
 
-def remove_outliers(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Remove outliers based on thresholds.
-    This logic is very specific to the actual data and business rules.
-
-    Args:
-        df (pd.DataFrame): Input DataFrame.
-    
-    Returns:
-        pd.DataFrame: DataFrame with outliers removed.
-    """
-    logger.info(f"FUNCTION START: remove_outliers with dataframe shape={df.shape}")
-    initial_count = len(df)
-    
-    # campaign_id should not be below 0. 
-    # Count how many are invalid (NaN or <= 0)
-    invalid_count = df[(df['campaign_id'].isna()) | (df['campaign_id'] <= 0)].shape[0]
-    logger.info(f"Found {invalid_count} rows with invalid campaign_id")
-
-    # Remove those rows
-    df = df[df['campaign_id'] > 0]
-    
-    # OPTIONAL ADVANCED: Use IQR method to identify outliers in numeric columns
-    # Example:
-    # for col in ['price', 'weight', 'length', 'width', 'height']:
-    #     if col in df.columns and df[col].dtype in ['int64', 'float64']:
-    #         Q1 = df[col].quantile(0.25)
-    #         Q3 = df[col].quantile(0.75)
-    #         IQR = Q3 - Q1
-    #         lower_bound = Q1 - 1.5 * IQR
-    #         upper_bound = Q3 + 1.5 * IQR
-    #         df = df[(df[col] >= lower_bound) & (df[col] <= upper_bound)]
-    #         logger.info(f"Applied outlier removal to {col}: bounds [{lower_bound}, {upper_bound}]")
-    
-    removed_count = initial_count - len(df)
-    logger.info(f"Removed {removed_count} outlier rows")
-    logger.info(f"{len(df)} records remaining after removing outliers.")
-    return df
-
-
-#####################################
-# Define Main Function - The main entry point of the script
-#####################################
-
 def main() -> None:
-    """
-    Main function for processing data.
-    """
     logger.info("==================================")
     logger.info("STARTING prepare_sales_data.py")
     logger.info("==================================")
@@ -197,57 +158,38 @@ def main() -> None:
 
     input_file = "sales_data.csv"
     output_file = "sales_data_prepared.csv"
-    
+
     df = read_raw_data(input_file)
     original_shape = df.shape
     original_columns = df.columns.tolist()
 
-    # Log initial dataframe information
     logger.info(f"Initial dataframe columns: {', '.join(original_columns)}")
     logger.info(f"Initial dataframe shape: {original_shape}")
-    
-    # --- Clean using DataScrubber ---
-    scrubber = DataScrubber(df)
-    scrubber.normalize_column_names()
-    scrubber.format_string_columns()
-    df = scrubber.get_dataframe()
 
-    # Log column name changes
-    cleaned_columns = df.columns.tolist()
+    preparer = PrepareSalesData(df)
+
+    preparer.remove_duplicates()
+    preparer.handle_missing_values()
+    preparer.clean_columns()
+    preparer.remove_outliers()
+    preparer.finalize_cleaning()
+
+    df_cleaned = preparer.get_dataframe()
+
+    cleaned_columns = df_cleaned.columns.tolist()
     changed_columns = [f"{old} -> {new}" for old, new in zip(original_columns, cleaned_columns) if old != new]
     if changed_columns:
         logger.info(f"Cleaned column names: {', '.join(changed_columns)}")
 
-    # Remove duplicates
-    df = remove_duplicates(df, scrubber)
-
-    # Handle missing values
-    df = handle_missing_values(df)
-
-    # Remove outliers
-    df = remove_outliers(df)
-
-    df = scrubber.rename_columns(
-        {
-            "transaction_id" : "sale_id"
-        }
-    )
-
-    # Save prepared data
-    save_prepared_data(df, output_file)
+    save_prepared_data(df_cleaned, output_file)
 
     logger.info("==================================")
-    logger.info(f"Original shape: {df.shape}")
-    logger.info(f"Cleaned shape:  {original_shape}")
+    logger.info(f"Original shape: {original_shape}")
+    logger.info(f"Cleaned shape:  {df_cleaned.shape}")
     logger.info("==================================")
     logger.info("FINISHED prepare_sales_data.py")
     logger.info("==================================")
 
-#####################################
-# Conditional Execution Block 
-# Ensures the script runs only when executed directly
-# This is a common Python convention.
-#####################################
 
 if __name__ == "__main__":
     main()

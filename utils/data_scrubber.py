@@ -273,3 +273,16 @@ class DataScrubber:
                 raise ValueError(f"Column name '{column}' not found in the DataFrame.")
         self.df = self.df[columns]
         return self.df
+    
+    def clean_date(self, column: str, expected_format: str) -> int:
+        # Try to parse dates strictly, invalid formats become NaT
+        self.df[column] = pd.to_datetime(self.df[column], format=expected_format, errors='coerce')
+        
+        invalid_dates_count = self.df[column].isna().sum()
+      
+        # Drop rows with invalid dates
+        self.df = self.df.dropna(subset=[column])
+
+        self.df[column] = self.df[column].dt.strftime(expected_format)
+
+        return invalid_dates_count
