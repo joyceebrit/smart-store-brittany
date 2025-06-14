@@ -2712,3 +2712,12 @@ dtype: int64
 2025-06-14 03:11:25.723 | INFO     | __main__:load_olap_cube:24 - Loaded OLAP cube data from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
 2025-06-14 03:12:12.600 | INFO     | __main__:load_olap_cube:24 - Loaded OLAP cube data from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
 2025-06-14 03:12:13.424 | INFO     | __main__:plot_avg_transaction_size:80 - Saved plot image to graphs\avg_transaction_size_top_20.png
+2025-06-14 03:39:54.702 | INFO     | __main__:main:103 - Starting OLAP Cubing process...
+2025-06-14 03:39:54.733 | INFO     | __main__:ingest_sales_data_from_dw:27 - Sales data successfully loaded from SQLite data warehouse.
+2025-06-14 03:39:54.761 | INFO     | __main__:create_olap_cube:84 - OLAP cube created with dimensions: ['customer_id']
+2025-06-14 03:39:54.763 | INFO     | __main__:ingest_customers_from_dw:40 - Customers data successfully loaded from SQLite data warehouse.
+2025-06-14 03:39:54.774 | INFO     | __main__:write_cube_to_csv:96 - OLAP cube saved to data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 03:39:54.774 | INFO     | __main__:main:127 - OLAP Cubing process completed successfully.
+2025-06-14 03:39:54.775 | INFO     | __main__:main:128 - Please see outputs in data\olap_cubing_outputs
+2025-06-14 03:40:13.133 | INFO     | __main__:load_olap_cube:24 - Loaded OLAP cube data from data\olap_cubing_outputs\multidimensional_olap_cube.csv.
+2025-06-14 03:40:14.108 | INFO     | __main__:plot_avg_transaction_size:80 - Saved plot image to graphs\avg_transaction_size_top_20.png
